@@ -14,13 +14,9 @@ export type InitialState = {
   isLoggedIn: boolean;
   user: User;
   handleLogin: (a: InitialState["user"]) => void;
+};
 
-  //setInitialState: React.Dispatch<React.SetStateAction<Omit<InitialState, "setInitialState">>>;
-  // React.Dispatch<
-  //   React.SetStateAction<any>
-  //   //   {
-  //   //   isLoggedIn: boolean;
-  //   //   user: User;
-  //   // }
-  // >;
+export type NavigationProps = {
+  navigate: (route: string, params?: { id?: number }) => void;
+  goBack: () => void;
 };

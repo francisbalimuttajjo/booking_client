@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { mainStackParams, mainRoutes } from "../types/screenTypes";
 import HomeScreen from "./screens/home";
 import ProfileScreen from "./screens/profile";
+import SearchScreen from "./screens/search";
 
 const Screen = () => {
   const Stack = createStackNavigator<mainStackParams>();
@@ -20,13 +21,18 @@ const Screen = () => {
           }}
         >
           <Stack.Screen
-            name={mainRoutes.Profile}
-            component={ProfileScreen}
+            name={mainRoutes.Home}
+            component={HomeScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name={mainRoutes.Home}
-            component={HomeScreen}
+            name={mainRoutes.Search}
+            component={SearchScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={mainRoutes.Profile}
+            component={ProfileScreen}
             options={{ headerShown: false }}
           />
         </Stack.Group>

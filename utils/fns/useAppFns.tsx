@@ -4,11 +4,9 @@ import { InitialState } from "../../types/apiTypes";
 
 const UseFns = () => {
   const [isAuthenticating, setIsAuthenticating] = React.useState<boolean>(true);
-  const [initialState, setInitialState] = React.useState
-    // <
-    // Omit<InitialState, "setInitialState">
-    // >
-    ({
+  const [initialState, setInitialState] = React.useState<
+    Omit<InitialState, "handleLogin">
+  >({
     user: { firstName: "", lastName: "", email: "", photo: "", id: "" },
     isLoggedIn: false,
   });
@@ -21,7 +19,9 @@ const UseFns = () => {
         user: res.data,
         isLoggedIn: true,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const handleLogin = (user: InitialState["user"]) => {
@@ -38,7 +38,7 @@ const UseFns = () => {
     authenticateUser,
     initialState,
     handleLogin,
-    setInitialState,
+
   };
 };
 

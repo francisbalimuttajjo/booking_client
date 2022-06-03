@@ -5,16 +5,21 @@ import { useQuery, useQueryClient } from "react-query";
 import api from "../../utils/api";
 import { Hotel } from "../../types/apiTypes";
 import UserContext from "../../utils/fns/userContext";
+import Header from "./Header";
 
 const Home = () => {
   const queryClient = useQueryClient();
 
   const {
+    isFetching,
     isLoading: loadingHotel,
     isError,
     data: hotels,
     error,
   } = useQuery<Hotel[], Error>("hotels", api.getHotels);
+  // const ho = queryClient.getQueryData("hotels");
+  // // console.log("ho", ho);
+  // console.log("ho", isFetching);
 
   const { initialState } = useContext(UserContext);
   console.log(initialState.user);
@@ -24,13 +29,23 @@ const Home = () => {
   }
 
   return (
-    <View style={{ margin: "20%" }}>
-      <Text>user {initialState.user.firstName}</Text>
+    <View>
+      <Header />
+      <View style={{ margin: "20%" }}>
+        <Text>user {initialState.user.firstName}</Text>
 
-      {hotels?.map((hotel, index) => (
-        <Text key={index}>{hotel.name}</Text>
-      ))}
+        {hotels?.map((hotel, index) => (
+          <Text key={index}>{hotel.name}</Text>
+        ))}
+      </View>
     </View>
+    // <View style={{ margin: "20%" }}>
+    //   <Text>user {initialState.user.firstName}</Text>
+
+    //   {hotels?.map((hotel, index) => (
+    //     <Text key={index}>{hotel.name}</Text>
+    //   ))}
+    // </View>
   );
 };
 

@@ -7,7 +7,6 @@ import Container from "./navigation/mainNavigation";
 import UserContext from "./utils/fns/userContext";
 import useFns from "./utils/fns/useAppFns";
 import { initial } from "lodash";
-import { User } from "./types/apiTypes";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -23,7 +22,6 @@ const App = () => {
     authenticateUser,
     initialState,
     handleLogin,
-    setInitialState,
   } = useFns();
 
   if (isAuthenticating) {
@@ -35,11 +33,9 @@ const App = () => {
       />
     );
   }
- 
 
   return (
-    // <UserContext.Provider value={{ initialState, setInitialState }}>
-    <UserContext.Provider value={{ initialState, handleLogin}}>
+    <UserContext.Provider value={{ initialState, handleLogin }}>
       <QueryClientProvider client={queryClient}>
         <Container />
       </QueryClientProvider>

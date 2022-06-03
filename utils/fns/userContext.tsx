@@ -7,7 +7,7 @@ const UserContext = React.createContext({
     isLoggedIn: false,
   },
 
-  handleLogin: (a: InitialState["user"]) => {},
+  handleLogin: (a: InitialState["user"]): void => {},
 });
 
 export default UserContext;

@@ -14,10 +14,9 @@ const getHotels = async () => {
 };
 
 const authenticateUser = async () => {
-  const token = await AsyncStorage.getItem("token");
+  const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post("/users/auth", {
-    token:'pp',
-    // token,
+    token,
   });
 
   return response.data;
