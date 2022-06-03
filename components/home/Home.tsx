@@ -1,28 +1,40 @@
 import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from "react-native";
 import { useQuery, useQueryClient } from "react-query";
 import api from "../../utils/api";
-import { Hotel } from "../../types/apiTypes";
+import { Hotel as HotelType } from "../../types/apiTypes";
 import UserContext from "../../utils/fns/userContext";
 import Header from "./Header";
+import Hotel from "./Hotel";
+import Greeting from "./Greeting";
 
 const Home = () => {
   const queryClient = useQueryClient();
 
   const {
-    isFetching,
+    // isFetching,
     isLoading: loadingHotel,
-    isError,
+    // isError,
     data: hotels,
-    error,
-  } = useQuery<Hotel[], Error>("hotels", api.getHotels);
-  // const ho = queryClient.getQueryData("hotels");
-  // // console.log("ho", ho);
-  // console.log("ho", isFetching);
+    // error,
+  } = useQuery<HotelType[], Error>("HOTELS", api.getHotels);
+  const {
+    // isFetching,
+    // isLoading: TopHotels,
+    // isError,
+    data: topHotels,
+    // error,
+  } = useQuery<HotelType[], Error>("TOP_RATED_HOTELS", api.getTopRatedHotels);
+  // console.log(hotels);
 
   const { initialState } = useContext(UserContext);
-  console.log(initialState.user);
 
   if (loadingHotel) {
     return <Text>loading ....</Text>;
@@ -31,22 +43,31 @@ const Home = () => {
   return (
     <View>
       <Header />
-      <View style={{ margin: "20%" }}>
-        <Text>user {initialState.user.firstName}</Text>
+      <Greeting />
 
-        {hotels?.map((hotel, index) => (
-          <Text key={index}>{hotel.name}</Text>
-        ))}
-      </View>
+      <Text style={styles.text}>Recommended Places</Text>
+      <FlatList
+        horizontal
+        contentContainerStyle={{ paddingHorizontal: "5%" }}
+        data={hotels}
+        renderItem={(hotel) => <Hotel hotel={hotel.item} />}
+        keyExtractor={(hotel) => hotel.id.toString()}
+      />
     </View>
-    // <View style={{ margin: "20%" }}>
-    //   <Text>user {initialState.user.firstName}</Text>
-
-    //   {hotels?.map((hotel, index) => (
-    //     <Text key={index}>{hotel.name}</Text>
-    //   ))}
-    // </View>
   );
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textTransform: "capitalize",
+    width: "80%",
+    alignSelf: "center",
+    marginTop: "10%",
+    opacity: 0.4,
+    marginBottom: "5%",
+  },
+});

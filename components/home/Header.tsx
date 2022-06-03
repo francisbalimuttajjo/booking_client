@@ -26,7 +26,7 @@ const Header = () => {
             activeOpacity={0.5}
             onPress={handleSearch}
           >
-            <EvilIcon name="search" size={32} color="#32a844" />
+            <EvilIcon name="search" size={32} color="#326fa8" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.center} activeOpacity={0.5}>
             <EntypoIcon name="dots-three-vertical" size={20} color="black" />

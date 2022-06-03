@@ -12,6 +12,10 @@ const getHotels = async () => {
   const response = await apiClient.get("/hotels");
   return response.data.data.rows;
 };
+const getTopRatedHotels = async () => {
+  const response = await apiClient.get("/hotels/top-rated");
+  return response.data.data;
+};
 
 const authenticateUser = async () => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
@@ -81,5 +85,6 @@ const Api = {
   getHotels,
   loginUser,
   authenticateUser,
+  getTopRatedHotels,
 };
 export default Api;

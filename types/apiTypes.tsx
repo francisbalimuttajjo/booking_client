@@ -1,5 +1,8 @@
 export type Hotel = {
   name: string;
+  id: number;
+  mainImage: string;
+  price: number;
 };
 
 export type User = {
