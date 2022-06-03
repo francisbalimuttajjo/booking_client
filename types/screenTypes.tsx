@@ -1,24 +1,16 @@
+
 export enum mainRoutes {
-  WelcomePage = "Welcome",
-}
-export enum tabRoutes {
-  HomePage = "Home",
-  ProfilePage = "Profile",
-  SearchPage = "Search",
+  Home = "Home",
+  Profile = "Profile",
+  Search = "Search",
 }
 
-export type tabStackParams = {
-  Home: undefined;
-  Profile: undefined;
-  Search: undefined;
-  // CashBook: undefined;
-  // Purchases: undefined;
-  // entryDetails: { id: undefined };
-  // editCashEntry: { id: undefined };
-};
+
 
 export type mainStackParams = {
-  Welcome: undefined;
+  Home: undefined;
+  Profile: undefined;
+
   // CashBook: undefined;
   // Purchases: undefined;
   // entryDetails: { id: undefined };
