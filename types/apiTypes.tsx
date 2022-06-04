@@ -3,6 +3,7 @@ export type Hotel = {
   id: number;
   mainImage: string;
   price: number;
+  physicalLocation: string;
 };
 
 export type User = {

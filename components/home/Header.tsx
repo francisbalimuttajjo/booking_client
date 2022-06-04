@@ -39,7 +39,7 @@ const Header = () => {
 export default Header;
 const styles = StyleSheet.create({
   sub_container: {
-    width: "85%",
+    width: "90%",
     marginTop: "3%",
     alignSelf: "center",
     flexDirection: "row",

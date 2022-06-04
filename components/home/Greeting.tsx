@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     marginTop: 5,
   },
-  container: { width: "90%", alignItems: "flex-end", marginTop: "10%" },
-  sub_container: { width: "80%", alignSelf: "center" },
+  container: { width: "90%", alignItems: "flex-end", marginTop: "8%" },
+  sub_container: { width: "90%", alignSelf: "center" },
   greetings_1: {
     fontSize: 20,
     fontWeight: "bold",

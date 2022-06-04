@@ -13,6 +13,7 @@ import { Hotel as HotelType } from "../../types/apiTypes";
 import UserContext from "../../utils/fns/userContext";
 import Header from "./Header";
 import Hotel from "./Hotel";
+import PopularHotel from "./PopularHotel";
 import Greeting from "./Greeting";
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
     data: hotels,
     // error,
   } = useQuery<HotelType[], Error>("HOTELS", api.getHotels);
+
   const {
     // isFetching,
     // isLoading: TopHotels,
@@ -44,13 +46,22 @@ const Home = () => {
     <View>
       <Header />
       <Greeting />
-
-      <Text style={styles.text}>Recommended Places</Text>
+      <Text style={{ ...styles.text, marginTop: "5%" }}>
+        Recommended Places
+      </Text>
       <FlatList
         horizontal
         contentContainerStyle={{ paddingHorizontal: "5%" }}
         data={hotels}
         renderItem={(hotel) => <Hotel hotel={hotel.item} />}
+        keyExtractor={(hotel) => hotel.id.toString()}
+      />
+      <Text style={{ ...styles.text, marginTop: "3%" }}>Popular Places</Text>
+      <FlatList
+        horizontal
+        contentContainerStyle={{ paddingHorizontal: "5%", paddingBottom: "5%" }}
+        data={hotels}
+        renderItem={(hotel) => <PopularHotel hotel={hotel.item} />}
         keyExtractor={(hotel) => hotel.id.toString()}
       />
     </View>
@@ -64,9 +75,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textTransform: "capitalize",
-    width: "80%",
+    width: "90%",
     alignSelf: "center",
-    marginTop: "10%",
     opacity: 0.4,
     marginBottom: "5%",
   },
