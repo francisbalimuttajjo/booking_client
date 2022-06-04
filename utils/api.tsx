@@ -14,8 +14,7 @@ const getHotels = async () => {
 };
 const getHotel = async (id: number) => {
   const response = await apiClient.get(`/hotels/${id}`);
-  console.log(response.data);
-  return response.data.data;
+  return response.data;
 };
 const getTopRatedHotels = async () => {
   const response = await apiClient.get("/hotels/top-rated");

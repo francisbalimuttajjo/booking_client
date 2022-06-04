@@ -1,6 +1,5 @@
 import React from "react";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
-import EntypoIcon from "react-native-vector-icons/Entypo";
 import { Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { Hotel as HotelType } from "../../types/apiTypes";
 import useFns from "./useFns";
@@ -28,7 +27,6 @@ const Hotel = (props: { hotel: HotelType }) => {
             {props.hotel.physicalLocation} ,Uganda
           </Text>
           <View style={styles.price_container}>
-            {/* <EntypoIcon name="star" size={20} color="#326fa8" /> */}
             <Text style={{ fontSize: 20, color: "#326fa8" }}>
               {props.hotel.price}
             </Text>

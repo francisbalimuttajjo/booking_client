@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { useNavigation } from "@react-navigation/native";
 import {
   View,
   Text,
-  TouchableOpacity,
   FlatList,
   StyleSheet,
 } from "react-native";

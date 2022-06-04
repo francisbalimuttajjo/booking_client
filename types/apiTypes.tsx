@@ -4,6 +4,18 @@ export type Hotel = {
   mainImage: string;
   price: number;
   physicalLocation: string;
+  slug: string;
+  noOfRatings: number;
+  averageRating: number;
+};
+
+export type HotelDetailsResponse = {
+  data: {
+    averageRating: number;
+    noOfRatings: number;
+    status: string;
+    hotel: Hotel;
+  };
 };
 
 export type User = {
