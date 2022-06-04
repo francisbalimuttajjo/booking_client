@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\PRO GADGETS\Desktop\booking_client\node_modules\@babel\plugin-transform-runtime\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\PRO GADGETS\Desktop\booking_client\node_modules\@expo\json-file\node_modules\.bin'
 
 npm manifest: 
   {

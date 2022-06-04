@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
-import { NavigationProps } from "../../types/apiTypes";
+import { Hotel, HotelDetailsNavigationProps } from "../../types/apiTypes";
 
-const UseFns = () => {
-  const { navigate } = useNavigation<NavigationProps>();
-  const handleNavigation = () => navigate("HotelDetails");
+const UseFns = (hotel: Hotel) => {
+  const { navigate } = useNavigation<HotelDetailsNavigationProps>();
+  const handleNavigation = () => navigate("HotelDetails", { hotel });
   return { handleNavigation };
 };
 

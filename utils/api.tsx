@@ -12,6 +12,11 @@ const getHotels = async () => {
   const response = await apiClient.get("/hotels");
   return response.data.data.rows;
 };
+const getHotel = async (id: number) => {
+  const response = await apiClient.get(`/hotels/${id}`);
+  console.log(response.data);
+  return response.data.data;
+};
 const getTopRatedHotels = async () => {
   const response = await apiClient.get("/hotels/top-rated");
   return response.data.data;
@@ -83,6 +88,7 @@ const loginUser = async ({
 
 const Api = {
   getHotels,
+  getHotel,
   loginUser,
   authenticateUser,
   getTopRatedHotels,

@@ -24,3 +24,7 @@ export type NavigationProps = {
   navigate: (route: string, params?: { id?: number }) => void;
   goBack: () => void;
 };
+
+export type HotelDetailsNavigationProps = {
+  navigate: (route: string, params: { hotel: Hotel }) => void;
+};

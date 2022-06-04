@@ -5,6 +5,7 @@ import { mainStackParams, mainRoutes } from "../types/screenTypes";
 import HomeScreen from "./screens/home";
 import ProfileScreen from "./screens/profile";
 import SearchScreen from "./screens/search";
+import HotelDetailsScreen from "./screens/hotelDetails";
 
 const Screen = () => {
   const Stack = createStackNavigator<mainStackParams>();
@@ -17,6 +18,7 @@ const Screen = () => {
             headerStyle: { backgroundColor: "transparent" },
             headerTitleStyle: {
               fontWeight: "bold",
+              textTransform: "capitalize",
             },
           }}
         >
@@ -29,6 +31,13 @@ const Screen = () => {
             name={mainRoutes.Search}
             component={SearchScreen}
             options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={mainRoutes.HotelDetails}
+            component={HotelDetailsScreen}
+            options={({ route }) => ({
+              title: `  ${route.params.hotel.name} `,
+            })}
           />
           <Stack.Screen
             name={mainRoutes.Profile}

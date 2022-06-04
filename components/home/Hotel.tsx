@@ -6,7 +6,7 @@ import { Hotel as HotelType } from "../../types/apiTypes";
 import useFns from "./useFns";
 
 const Hotel = (props: { hotel: HotelType }) => {
-  const { handleNavigation } = useFns();
+  const { handleNavigation } = useFns(props.hotel);
 
   return (
     <TouchableOpacity
