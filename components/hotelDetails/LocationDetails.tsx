@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
-import { Hotel } from "../../types/apiTypes";
+import { Hotel, HotelDetailsNavigationProps } from "../../types/apiTypes";
+import { useNavigation } from "@react-navigation/native";
 
 const Details = (props: {
   hotel?: Hotel;
@@ -10,6 +11,7 @@ const Details = (props: {
   noOfRatings?: number;
 }) => {
   const ratings = props.noOfRatings;
+  const { navigate } = useNavigation<HotelDetailsNavigationProps>();
 
   return (
     <View style={styles.main_container}>
@@ -40,6 +42,12 @@ const Details = (props: {
               : ""}
           </Text>
         </View>
+        <TouchableOpacity
+          onPress={() => navigate("Map", { hotel: props.hotel })}
+          style={styles.pin}
+        >
+          <EntypoIcon name="pin" size={20} color="#326fa8" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -81,4 +89,5 @@ const styles = StyleSheet.create({
   main_container: { backgroundColor: "#fff", width: "100%", height: 200 },
   location_container: { flexDirection: "row", marginTop: "2%" },
   name: { fontSize: 32, textTransform: "capitalize" },
+  pin: { right: 10, position: "absolute" },
 });

@@ -5,13 +5,15 @@ export enum mainRoutes {
   Profile = "Profile",
   HotelDetails = "HotelDetails",
   Search = "Search",
+  Map = "Map",
 }
 
 export type mainStackParams = {
   Home: undefined;
   Profile: undefined;
   Search: undefined;
-  HotelDetails: { hotel:Hotel };
+  Map: { hotel: Hotel };
+  HotelDetails: { hotel: Hotel };
 
   // CashBook: undefined;
   // Purchases: undefined;

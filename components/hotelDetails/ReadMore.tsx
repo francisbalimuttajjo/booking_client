@@ -25,7 +25,7 @@ const ReadMore = (props: { description?: string }) => {
 export default ReadMore;
 
 const styles = StyleSheet.create({
-  container: { width: "93%", alignSelf: "center" },
+  container: { width: "93%", alignSelf: "center", marginTop: "2%" },
   text1: {
     lineHeight: 28,
     fontWeight: "bold",

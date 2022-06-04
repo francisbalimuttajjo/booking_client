@@ -6,6 +6,7 @@ import EvilIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import { Hotel, HotelDetailsResponse } from "../../types/apiTypes";
 import LocationDetails from "./LocationDetails";
+import Services from "./Services";
 import ReadMore from "./ReadMore";
 
 const Details = (props: { hotel: Hotel }) => {
@@ -36,23 +37,16 @@ const Details = (props: { hotel: Hotel }) => {
         averageRating={data?.data?.averageRating}
         noOfRatings={data?.data?.noOfRatings}
       />
-      <View
-        style={{ backgroundColor: "#fff", marginTop: "2%", paddingTop: "2%" }}
-      >
+      <View style={styles.container}>
         <Image
-          style={{
-            width: "95%",
-            height: 200,
-            borderRadius: 5,
-            alignSelf: "center",
-          }}
+          style={styles.image}
           source={{
             uri: data?.data?.hotel.mainImage,
           }}
-              />
-          </View>
-          <ReadMore description={ data?.data?.hotel.description}/>
-    
+        />
+      </View>
+      <ReadMore description={data?.data?.hotel.description} />
+      <Services />
 
       {/* <Text>Details page</Text>
       <Text>{props.hotel.id}</Text> */}
@@ -61,4 +55,12 @@ const Details = (props: { hotel: Hotel }) => {
 };
 
 export default Details;
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: { backgroundColor: "#fff", marginTop: "2%", paddingTop: "2%" },
+  image: {
+    width: "95%",
+    height: 200,
+    borderRadius: 5,
+    alignSelf: "center",
+  },
+});

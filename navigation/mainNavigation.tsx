@@ -2,13 +2,13 @@ import React from "react";
 import Ionicon from "react-native-vector-icons/AntDesign";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, TouchableOpacity } from "react-native"; 
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { mainStackParams, mainRoutes } from "../types/screenTypes";
 import HomeScreen from "./screens/home";
+import MapScreen from "./screens/map";
 import ProfileScreen from "./screens/profile";
 import SearchScreen from "./screens/search";
 import HotelDetailsScreen from "./screens/hotelDetails";
-
 
 const Screen = () => {
   const Stack = createStackNavigator<mainStackParams>();
@@ -19,9 +19,11 @@ const Screen = () => {
       <Stack.Navigator>
         <Stack.Group
           screenOptions={{
-            headerStyle: { backgroundColor: "transparent" },
+            headerStyle: {
+              // backgroundColor: "transparent"
+            },
             headerTitleStyle: {
-              fontWeight: "bold",
+              // fontWeight: "bold",
               textTransform: "capitalize",
             },
           }}
@@ -41,7 +43,7 @@ const Screen = () => {
             component={HotelDetailsScreen}
             options={({ navigation, route }) => {
               return {
-                title: route.params.hotel.name,
+                title: "",
                 headerRight: () => (
                   <TouchableOpacity
                     // disabled={loading}
@@ -57,6 +59,11 @@ const Screen = () => {
                 ),
               };
             }}
+          />
+          <Stack.Screen
+            name={mainRoutes.Map}
+            component={MapScreen}
+            options={{ title: "" }}
           />
           <Stack.Screen
             name={mainRoutes.Profile}
@@ -78,7 +85,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 40,
     height: 40,
-    marginRight: "20%",
+    marginRight: "10%",
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
