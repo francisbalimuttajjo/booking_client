@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { useQuery } from "react-query";
 import api from "../../utils/api";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import { Hotel, HotelDetailsResponse } from "../../types/apiTypes";
 import LocationDetails from "./LocationDetails";
+import ReadMore from "./ReadMore";
 
 const Details = (props: { hotel: Hotel }) => {
   const {
@@ -29,16 +30,32 @@ const Details = (props: { hotel: Hotel }) => {
     return <Text>error occurred</Text>;
   }
   return (
-    <ScrollView>
+    <ScrollView style={{ height: "100%" }}>
       <LocationDetails
         hotel={data?.data?.hotel}
         averageRating={data?.data?.averageRating}
         noOfRatings={data?.data?.noOfRatings}
       />
-      <View style={{ backgroundColor: "#fff", marginTop: "2%" }}></View>
+      <View
+        style={{ backgroundColor: "#fff", marginTop: "2%", paddingTop: "2%" }}
+      >
+        <Image
+          style={{
+            width: "95%",
+            height: 200,
+            borderRadius: 5,
+            alignSelf: "center",
+          }}
+          source={{
+            uri: data?.data?.hotel.mainImage,
+          }}
+              />
+          </View>
+          <ReadMore description={ data?.data?.hotel.description}/>
+    
 
-      <Text>Details page</Text>
-      <Text>{props.hotel.id}</Text>
+      {/* <Text>Details page</Text>
+      <Text>{props.hotel.id}</Text> */}
     </ScrollView>
   );
 };

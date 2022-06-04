@@ -7,6 +7,7 @@ export type Hotel = {
   slug: string;
   noOfRatings: number;
   averageRating: number;
+  description: string;
 };
 
 export type HotelDetailsResponse = {
