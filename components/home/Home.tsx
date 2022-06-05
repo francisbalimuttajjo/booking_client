@@ -4,76 +4,10 @@ import Hotel from "./Hotel";
 import Header from "./Header";
 import Greeting from "./Greeting";
 import api from "../../utils/api";
+import Skeleton from "../skeleton/Home";
 import PopularHotelsList from "./PopularHotelsList";
 import { Hotel as HotelType } from "../../types/apiTypes";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import { LinearGradient } from "expo-linear-gradient";
-import SkeletonContent from "react-native-skeleton-content";
-
-const FirstExample = ({}) => (
-  <SkeletonPlaceholder>
-    <SkeletonPlaceholder.Item
-      width={100}
-      height={100}
-      borderRadius={100}
-      borderWidth={5}
-      borderColor="white"
-      alignSelf="center"
-      position="relative"
-    />
-    <SkeletonPlaceholder.Item
-      width={120}
-      height={20}
-      alignSelf="center"
-      marginTop={12}
-      borderRadius={4}
-    />
-    <SkeletonPlaceholder.Item
-      width={240}
-      height={20}
-      alignSelf="center"
-      marginTop={12}
-      borderRadius={4}
-    />
-    <SkeletonPlaceholder.Item
-      width={240}
-      height={20}
-      alignSelf="center"
-      marginTop={12}
-      borderRadius={4}
-    />
-  </SkeletonPlaceholder>
-);
-
-FirstExample.propTypes = {};
-FirstExample.defaultProps = {};
-
-const App = () => {
-  return (
-    // <SkeletonPlaceholder>
-    //   <View style={{ flexDirection: "row", alignItems: "center" }}>
-    //     <View style={{ width: 60, height: 60, borderRadius: 50 }} />
-    //     <View style={{ marginLeft: 20 }}>
-    //       <View style={{ width: 120, height: 20, borderRadius: 4 }} />
-    //       <View
-    //         style={{ marginTop: 6, width: 80, height: 20, borderRadius: 4 }}
-    //       />
-    //     </View>
-    //   </View>
-    // </SkeletonPlaceholder>
-    <SkeletonContent
-      containerStyle={{ flex: 1, width: 300 }}
-      isLoading={false}
-      layout={[
-        { key: "someId", width: 220, height: 200, marginBottom: 6 },
-        { key: "someOtherId", width: 180, height: 200, marginBottom: 6 },
-      ]}
-    >
-      <Text style={{}}>Your content</Text>
-      <Text style={{}}>Other content</Text>
-    </SkeletonContent>
-  );
-};
+import React from "react";
 
 const Home = () => {
   const { isLoading: loadingHotel, data: hotels } = useQuery<
@@ -84,7 +18,7 @@ const Home = () => {
   });
 
   if (loadingHotel) {
-    return <Text>Loading ....</Text>;
+    return <Skeleton />;
   }
 
   return (

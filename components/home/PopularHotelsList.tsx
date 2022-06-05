@@ -1,8 +1,9 @@
 import React from "react";
-import {  Text, FlatList } from "react-native";
+import { Text, FlatList, StyleSheet, View } from "react-native";
 import { useQuery } from "react-query";
 import api from "../../utils/api";
 import PopularHotel from "./PopularHotel";
+import Skeleton from "../skeleton/Skeleton";
 import { Hotel as HotelType } from "../../types/apiTypes";
 
 const PopularHotelsList = () => {
@@ -14,10 +15,13 @@ const PopularHotelsList = () => {
     // error,
   } = useQuery<HotelType[], Error>("TOP_RATED_HOTELS", api.getTopRatedHotels);
 
-
-
   if (isLoading) {
-    return <Text>loading ...</Text>;
+    return (
+      <View style={styles.container}>
+        <Skeleton height={100} width="45%" borderRadius={15} />
+        <Skeleton height={100} width="45%" borderRadius={15} />
+      </View>
+    );
   }
   if (isError) {
     return <Text>somehing went wrong</Text>;
@@ -25,7 +29,7 @@ const PopularHotelsList = () => {
   return (
     <FlatList
       horizontal
-      contentContainerStyle={{ paddingHorizontal: "5%", paddingBottom: "5%" }}
+      contentContainerStyle={styles.flatList}
       data={topHotels}
       renderItem={(hotel) => <PopularHotel hotel={hotel.item} />}
       keyExtractor={(hotel) => hotel.id.toString()}
@@ -34,3 +38,12 @@ const PopularHotelsList = () => {
 };
 
 export default PopularHotelsList;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+
+  flatList: { paddingHorizontal: "5%", paddingBottom: "5%" },
+});
