@@ -5,10 +5,33 @@ import EvilIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import { NavigationProps } from "../../types/apiTypes";
 import { useNavigation } from "@react-navigation/native";
+import * as Location from "expo-location";
 
 const Header = () => {
   const { navigate } = useNavigation<NavigationProps>();
+  const [location, setLocation] =   React.useState<string>("");
   const handleSearch = () => navigate("Search");
+
+  React.useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        return;
+      }
+
+      let { coords } = await Location.getCurrentPositionAsync({});
+      const { latitude, longitude } = coords;
+
+      let response = await Location.reverseGeocodeAsync({
+        latitude,
+        longitude,
+      });
+      if (response) {
+        setLocation(`${response[0].city}, ${response[0].country} `);
+      }
+    })();
+  }, []);
+
   return (
     <View>
       <View style={styles.sub_container}>
@@ -17,7 +40,7 @@ const Header = () => {
         </TouchableOpacity>
         <View style={styles.location_container}>
           <EvilIcon name="location" size={24} color="black" />
-          <Text>Kampala Uganda</Text>
+          <Text>{location}</Text>
         </View>
 
         <View style={styles.search_container}>

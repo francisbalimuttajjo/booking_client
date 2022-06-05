@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add expo-location@~14.0.1
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-skeleton-content
 
 PATH: 
   C:\Windows\System32;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\PostgreSQL\14\pgAdmin 4\bin;C:\Users\PRO GADGETS\AppData\Roaming\npm;C:\Users\PRO GADGETS\AppData\Roaming\npm\node_modules\expo-cli;C:\Users\PRO GADGETS\AppData\Roaming\npm;C:\Users\PRO GADGETS\AppData\Roaming\npm;C:\Windows\System32;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\PostgreSQL\14\pgAdmin 4\bin;C:\Windows\system32;C:\Program Files\PostgreSQL\14\pgAdmin 4\bin;C:\Users\PRO GADGETS\AppData\Local\Programs\Microsoft VS Code\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\PRO GADGETS\Desktop\booking_client\node_modules\@expo\json-file\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\PRO GADGETS\Desktop\booking_client\node_modules\@babel\generator\node_modules\.bin'
 
 npm manifest: 
   {
@@ -28,16 +28,15 @@ npm manifest:
       "web": "expo start --web",
       "eject": "expo eject"
     },
-   
     "dependencies": {
       "@react-native-async-storage/async-storage": "~1.15.0",
       "@react-native-community/datetimepicker": "4.0.0",
+      "@react-native-masked-view/masked-view": "^0.2.6",
       "@react-native-picker/picker": "2.2.1",
       "@react-navigation/bottom-tabs": "^6.3.1",
       "@react-navigation/native": "^6.0.10",
       "@react-navigation/native-stack": "^6.6.1",
       "@react-navigation/stack": "^6.2.1",
-      "@reduxjs/toolkit": "^1.8.0",
       "@types/react-native-vector-icons": "^6.4.10",
       "axios": "^0.27.2",
       "expo": "~44.0.0",
@@ -45,6 +44,8 @@ npm manifest:
       "expo-camera": "~12.1.2",
       "expo-cli": "^5.4.3",
       "expo-image-picker": "~12.0.1",
+      "expo-linear-gradient": "~11.0.3",
+      "expo-location": "~14.0.1",
       "expo-splash-screen": "~0.14.1",
       "expo-status-bar": "~1.2.0",
       "firebase": "9.6.10",
@@ -54,10 +55,13 @@ npm manifest:
       "react-native": "0.64.3",
       "react-native-camera": "^4.2.1",
       "react-native-gesture-handler": "~2.1.0",
+      "react-native-linear-gradient": "^2.5.6",
       "react-native-modal-datetime-picker": "^13.1.2",
       "react-native-paper": "^4.12.1",
+      "react-native-ratings": "^8.1.0",
       "react-native-safe-area-context": "3.3.2",
       "react-native-screens": "~3.10.1",
+      "react-native-skeleton-placeholder": "^5.0.0",
       "react-native-vector-icons": "^9.1.0",
       "react-native-walkthrough-tooltip": "^1.3.1",
       "react-native-web": "0.17.1",
@@ -2375,6 +2379,11 @@ Lockfile:
     dependencies:
       invariant "^2.2.4"
   
+  "@react-native-masked-view/masked-view@^0.2.6":
+    version "0.2.6"
+    resolved "https://registry.yarnpkg.com/@react-native-masked-view/masked-view/-/masked-view-0.2.6.tgz#b26c52d5db3ad0926b13deea79c69620966a9221"
+    integrity sha512-303CxmetUmgiX9NSUxatZkNh9qTYYdiM8xkGf9I3Uj20U3eGY3M78ljeNQ4UVCJA+FNGS5nC1dtS9GjIqvB4dg==
+  
   "@react-native-picker/picker@2.2.1":
     version "2.2.1"
     resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.2.1.tgz#32b9f540d8e88a73d8856f73cca88251cecb9614"
@@ -2458,16 +2467,6 @@ Lockfile:
       "@react-navigation/elements" "^1.3.3"
       color "^3.1.3"
       warn-once "^0.1.0"
-  
-  "@reduxjs/toolkit@^1.8.0":
-    version "1.8.1"
-    resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.8.1.tgz#94ee1981b8cf9227cda40163a04704a9544c9a9f"
-    integrity sha512-Q6mzbTpO9nOYRnkwpDlFOAbQnd3g7zj7CtHAZWz5SzE5lcV97Tf8f3SzOO8BoPOMYBFgfZaqTUZqgGu+a0+Fng==
-    dependencies:
-      immer "^9.0.7"
-      redux "^4.1.2"
-      redux-thunk "^2.4.1"
-      reselect "^4.1.5"
   
   "@segment/loosely-validate-event@^2.0.0":
     version "2.0.0"
@@ -5632,6 +5631,19 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-10.0.2.tgz#706bda839782bb3e8ad4cbe43bde471a56368813"
     integrity sha512-Ro1lgyKldbFs4mxhWM+goX9sg0S2SRR8FiJJeOvaRzf8xNhrZfWA00Zpr+/3ocCoWQ3eEL+X9UF4PXXHf0KoOg==
   
+  expo-linear-gradient@~11.0.3:
+    version "11.0.3"
+    resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-11.0.3.tgz#bc559b9a251c9dc8aa37fb6c66c7a497fe92993c"
+    integrity sha512-LuzTM5+iEHCQfC2TBHAAI+ZjPvf0TvGiA7GYMsyTnakGA2r4JtsV8Ah/miQPKhfG06jLDOo4grUoSMGqbmSrEw==
+  
+  expo-location@~14.0.1:
+    version "14.0.2"
+    resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-14.0.2.tgz#933276b36558f546964753f107493b37953068b7"
+    integrity sha512-xFlj03NM0g9LZfWyIyL8q6AIXDhXskctX96806QGqZKv9C+JI2osEiTiyFxG8ei1MeTJojHfx+E07ORuByWiMw==
+    dependencies:
+      "@expo/config-plugins" "^4.0.2"
+      unimodules-task-manager-interface "~7.1.0"
+  
   expo-modules-autolinking@0.5.5, expo-modules-autolinking@~0.5.1:
     version "0.5.5"
     resolved "https://registry.yarnpkg.com/expo-modules-autolinking/-/expo-modules-autolinking-0.5.5.tgz#6bcc42072dcbdfca79d207b7f549f1fdb54a2b74"
@@ -6924,11 +6936,6 @@ Lockfile:
     version "8.0.1"
     resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
     integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
-  
-  immer@^9.0.7:
-    version "9.0.14"
-    resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.14.tgz#e05b83b63999d26382bb71676c9d827831248a48"
-    integrity sha512-ubBeqQutOSLIFCUBN03jGeOS6a3DoYlSYwYJTa+gSKEZKU5redJIqkIdZ3JVv/4RZpfcXdAWH5zCNLWPRv2WDw==
   
   import-fresh@^2.0.0:
     version "2.0.0"
@@ -10351,6 +10358,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
     integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
   
+  react-native-linear-gradient@^2.5.6:
+    version "2.5.6"
+    resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+    integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
+  
   react-native-modal-datetime-picker@^13.1.2:
     version "13.1.2"
     resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-13.1.2.tgz#7c8bd3402acb4dcfbca49c926a7f18dd108c69c4"
@@ -10367,6 +10379,13 @@ Lockfile:
       color "^3.1.2"
       react-native-iphone-x-helper "^1.3.1"
   
+  react-native-ratings@^8.1.0:
+    version "8.1.0"
+    resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-8.1.0.tgz#3fa9ad29128dc3a88e59518ba151e61c59dd0647"
+    integrity sha512-+QOJ4G3NjVkI1D+tk4EGx1dCvVfbD2nQdkrj9cXrcAoEiwmbep4z4bZbCKmWMpQ5h2dqbxABU8/eBnbDmvAc3g==
+    dependencies:
+      lodash "^4.17.15"
+  
   react-native-safe-area-context@3.3.2:
     version "3.3.2"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz#9549a2ce580f2374edb05e49d661258d1b8bcaed"
@@ -10379,6 +10398,11 @@ Lockfile:
     dependencies:
       react-freeze "^1.0.0"
       warn-once "^0.1.0"
+  
+  react-native-skeleton-placeholder@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-5.0.0.tgz#899fca447c2f0b81f98566e350e792157a3c9df9"
+    integrity sha512-7sdG+Y2ENEVcxFC9XlpCgHy59XKkxaUyVqDwuAb66hvl7lwFr25uA5kHJ+JuDJ84ptVil5UEowW/2avwhsfoYg==
   
   react-native-vector-icons@^9.1.0:
     version "9.1.0"
@@ -10553,12 +10577,7 @@ Lockfile:
     dependencies:
       minimatch "3.0.4"
   
-  redux-thunk@^2.4.1:
-    version "2.4.1"
-    resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.4.1.tgz#0dd8042cf47868f4b29699941de03c9301a75714"
-    integrity sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==
-  
-  redux@^4.0.0, redux@^4.1.2:
+  redux@^4.0.0:
     version "4.2.0"
     resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.0.tgz#46f10d6e29b6666df758780437651eeb2b969f13"
     integrity sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==
@@ -10737,7 +10756,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
     integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
   
-  reselect@^4.0.0, reselect@^4.1.5:
+  reselect@^4.0.0:
     version "4.1.5"
     resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.1.5.tgz#852c361247198da6756d07d9296c2b51eddb79f6"
     integrity sha512-uVdlz8J7OO+ASpBYoz1Zypgx0KasCY20H+N8JD13oUMtPvSHQuscrHop4KbXrbsBcdB9Ds7lVK7eRkBIfO43vQ==
@@ -12169,6 +12188,11 @@ Lockfile:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.0.0.tgz#0a36cb9a585c4f6abd51ad1deddb285c165297c8"
     integrity sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==
+  
+  unimodules-task-manager-interface@~7.1.0:
+    version "7.1.1"
+    resolved "https://registry.yarnpkg.com/unimodules-task-manager-interface/-/unimodules-task-manager-interface-7.1.1.tgz#1d48585012018971a0f0b62bc5ac53508a7addb4"
+    integrity sha512-vvtxJO3O6fJXvSc9qvgB2FS9xJk2nWG4NOvwCMmTmfblmvzGPFcTheOKzV7Z1dvjlqTZZ+TDqd5XOGa+0+NXVA==
   
   union-value@^1.0.0:
     version "1.0.1"

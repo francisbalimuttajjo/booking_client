@@ -9,7 +9,7 @@ const ReadMore = (props: { description?: string }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text1}>
+      <Text style={styles.text1} >
         {description !== undefined
           ? isReadMore
             ? description.slice(0, 90)

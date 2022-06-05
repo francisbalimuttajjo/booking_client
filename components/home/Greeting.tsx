@@ -4,6 +4,7 @@ import Ionicon from "react-native-vector-icons/Ionicons";
 import UserContext from "../../utils/fns/userContext";
 
 
+
 const Greeting = () => {
   const { initialState } = useContext(UserContext);
 
@@ -23,7 +24,7 @@ const Greeting = () => {
       </View>
       <View style={styles.sub_container}>
         <Text style={styles.greetings_1}>
-          Hi {initialState.user.firstName},
+          Hi {initialState.user.firstName },
         </Text>
         <Text style={styles.greetings_2}>Where do you want to go?</Text>
       </View>
