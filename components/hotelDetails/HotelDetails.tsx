@@ -45,7 +45,7 @@ const Details = (props: { hotel: Hotel }) => {
         />
       </View>
       <ReadMore description={data?.data?.hotel.description} />
-      <Services />
+      <Services  reviews={data?.data?.hotel.reviews} />
       <Reviews reviews={data?.data?.hotel.reviews} />
 
       {/* <Text>Details page</Text>

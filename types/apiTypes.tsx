@@ -1,3 +1,22 @@
+
+
+export type User = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  id: string;
+  photo: string;
+};
+
+export type Review = {
+  id: number;
+  hotel_id: number;
+  user: string;
+  rating: number;
+  review: string;
+  author: User;
+};
+
 export type Hotel = {
   name: string;
   id: number;
@@ -8,6 +27,7 @@ export type Hotel = {
   noOfRatings: number;
   averageRating: number;
   description: string;
+  reviews?:Review[]
 };
 
 export type HotelDetailsResponse = {
@@ -17,14 +37,6 @@ export type HotelDetailsResponse = {
     status: string;
     hotel: Hotel;
   };
-};
-
-export type User = {
-  email: string;
-  firstName: string;
-  lastName: string;
-  id: string;
-  photo: string;
 };
 
 export type InitialState = {
