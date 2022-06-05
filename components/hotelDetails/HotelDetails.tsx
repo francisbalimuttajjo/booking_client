@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import Footer from "./Footer";
 import Reviews from "./ReviewList";
 import Services from "./Services";
 import ReadMore from "./ReadMore";
@@ -30,27 +31,27 @@ const Details = (props: { hotel: Hotel }) => {
     return <Text>error occurred</Text>;
   }
   return (
-    <ScrollView style={{ height: "100%" }}>
-      <LocationDetails
-        hotel={data?.data?.hotel}
-        averageRating={data?.data?.averageRating}
-        noOfRatings={data?.data?.noOfRatings}
-      />
-      <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: data?.data?.hotel.mainImage,
-          }}
+    <View>
+      <ScrollView style={{ marginBottom: "30%" }}>
+        <LocationDetails
+          hotel={data?.data?.hotel}
+          averageRating={data?.data?.averageRating}
+          noOfRatings={data?.data?.noOfRatings}
         />
-      </View>
-      <ReadMore description={data?.data?.hotel.description} />
-      <Services  reviews={data?.data?.hotel.reviews} />
-      <Reviews reviews={data?.data?.hotel.reviews} />
-
-      {/* <Text>Details page</Text>
-      <Text>{props.hotel.id}</Text> */}
-    </ScrollView>
+        <View style={styles.container}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: data?.data?.hotel.mainImage,
+            }}
+          />
+        </View>
+        <ReadMore description={data?.data?.hotel.description} />
+        <Services reviews={data?.data?.hotel.reviews} />
+        <Reviews reviews={data?.data?.hotel.reviews} />
+      </ScrollView>
+      <Footer hotel={data?.data?.hotel} />
+    </View>
   );
 };
 

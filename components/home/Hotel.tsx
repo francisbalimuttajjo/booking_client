@@ -28,7 +28,7 @@ const Hotel = (props: { hotel: HotelType }) => {
           </Text>
           <View style={styles.price_container}>
             <Text style={{ fontSize: 20, color: "#326fa8" }}>
-              {props.hotel.price}
+              &#36;&nbsp;{props.hotel.price}
             </Text>
           </View>
         </View>

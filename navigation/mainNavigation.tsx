@@ -8,6 +8,7 @@ import HomeScreen from "./screens/home";
 import MapScreen from "./screens/map";
 import ProfileScreen from "./screens/profile";
 import SearchScreen from "./screens/search";
+import BookingScreen from "./screens/booking";
 import HotelDetailsScreen from "./screens/hotelDetails";
 
 const Screen = () => {
@@ -36,6 +37,11 @@ const Screen = () => {
           <Stack.Screen
             name={mainRoutes.Search}
             component={SearchScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={mainRoutes.Booking}
+            component={BookingScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen

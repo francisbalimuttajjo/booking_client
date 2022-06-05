@@ -32,7 +32,7 @@ const PopularHotel = (props: { hotel: HotelType }) => {
           </View>
 
           <View style={styles.price_container}>
-            <Text style={styles.price}>{props.hotel.price}</Text>
+            <Text style={styles.price}>&#36;&nbsp;{props.hotel.price}</Text>
           </View>
         </View>
       </View>
@@ -40,9 +40,6 @@ const PopularHotel = (props: { hotel: HotelType }) => {
   );
 };
 export default PopularHotel;
-
-
-
 
 const styles = StyleSheet.create({
   container: {

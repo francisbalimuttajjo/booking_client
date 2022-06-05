@@ -21,7 +21,7 @@ const OtherService = (props: {
   );
 };
 
-const Services = (props: { reviews: Hotel['reviews'] }) => {
+const Services = (props: { reviews: Hotel["reviews"] }) => {
   return (
     <View style={styles.main_container}>
       <Text style={styles.text}>Other Services</Text>
@@ -29,7 +29,7 @@ const Services = (props: { reviews: Hotel['reviews'] }) => {
         horizontal
         contentContainerStyle={{
           ...styles.flatList,
-          paddingBottom: props.reviews.length !==undefined ? "25%" : "5%",
+          paddingBottom: props?.reviews?.length == undefined ? "65%" : "5%",
         }}
         data={otherServices}
         renderItem={(service) => <OtherService service={service.item} />}
