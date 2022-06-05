@@ -1,13 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { useQuery } from "react-query";
-import api from "../../utils/api";
-import EvilIcon from "react-native-vector-icons/EvilIcons";
-import EntypoIcon from "react-native-vector-icons/Entypo";
-import { Hotel, HotelDetailsResponse } from "../../types/apiTypes";
-import LocationDetails from "./LocationDetails";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import Reviews from "./ReviewList";
 import Services from "./Services";
 import ReadMore from "./ReadMore";
+import api from "../../utils/api";
+import LocationDetails from "./LocationDetails";
+import { Hotel, HotelDetailsResponse } from "../../types/apiTypes";
 
 const Details = (props: { hotel: Hotel }) => {
   const {
@@ -47,6 +46,7 @@ const Details = (props: { hotel: Hotel }) => {
       </View>
       <ReadMore description={data?.data?.hotel.description} />
       <Services />
+      <Reviews reviews={data?.data?.hotel.reviews} />
 
       {/* <Text>Details page</Text>
       <Text>{props.hotel.id}</Text> */}

@@ -3,13 +3,15 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 const otherServices = [
-  { icon: "wifi", name: "Wifi" },
-  { icon: "free-breakfast", name: "Free Breakfast" },
-  { icon: "dinner-dining", name: "Dinner" },
-  { icon: "local-taxi", name: "PickUp/ Drop Off" },
+  { icon: "wifi", name: "Wifi", id: 0 },
+  { icon: "free-breakfast", name: "Free Breakfast", id: 1 },
+  { icon: "dinner-dining", name: "Dinner", id: 2 },
+  { icon: "local-taxi", name: "PickUp / Drop Off", id: 3 },
 ];
 
-const OtherService = (props: { service: { icon: string; name: string } }) => {
+const OtherService = (props: {
+  service: { icon: string; name: string; id: number };
+}) => {
   return (
     <View style={styles.container}>
       <MaterialIcon name={props.service.icon} size={44} color="black" />
@@ -27,7 +29,7 @@ const Services = () => {
         contentContainerStyle={styles.flatList}
         data={otherServices}
         renderItem={(service) => <OtherService service={service.item} />}
-        keyExtractor={(index) => index.toString()}
+        keyExtractor={(service) => service.id.toString()}
       />
     </View>
   );
