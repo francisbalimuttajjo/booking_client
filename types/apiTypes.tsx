@@ -51,5 +51,5 @@ export type NavigationProps = {
 };
 
 export type HotelDetailsNavigationProps = {
-  navigate: (route: string, params: { hotel?: Hotel }) => void;
+  navigate: (route: string, params?: { hotel?: Hotel }) => void;
 };

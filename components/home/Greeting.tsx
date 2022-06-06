@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import UserContext from "../../utils/fns/userContext";
-
-
+import useFns from "./useFns";
 
 const Greeting = () => {
+  const { navigateToProfile } = useFns();
   const { initialState } = useContext(UserContext);
 
   return (
     <View>
-      <View style={styles.container}>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={navigateToProfile}
+        style={styles.container}
+      >
         {initialState.user.photo === "" ? (
           <Ionicon name="ios-person-circle-outline" size={52} color="black" />
         ) : (
@@ -21,10 +25,10 @@ const Greeting = () => {
             }}
           />
         )}
-      </View>
+      </TouchableOpacity>
       <View style={styles.sub_container}>
         <Text style={styles.greetings_1}>
-          Hi {initialState.user.firstName },
+          Hi {initialState.user.firstName},
         </Text>
         <Text style={styles.greetings_2}>Where do you want to go?</Text>
       </View>

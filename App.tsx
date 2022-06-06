@@ -1,12 +1,12 @@
 import React from "react";
-import AppLoading from "expo-app-loading";
 import "react-native-gesture-handler";
+import AppLoading from "expo-app-loading";
 import devTools from "react-query-native-devtools";
+import { Provider as PaperProvider } from "react-native-paper";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Container from "./navigation/mainNavigation";
 import UserContext from "./utils/fns/userContext";
 import useFns from "./utils/fns/useAppFns";
-import { initial } from "lodash";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -37,7 +37,9 @@ const App = () => {
   return (
     <UserContext.Provider value={{ initialState, handleLogin }}>
       <QueryClientProvider client={queryClient}>
-        <Container />
+        <PaperProvider>
+          <Container />
+        </PaperProvider>
       </QueryClientProvider>
     </UserContext.Provider>
   );

@@ -82,8 +82,9 @@ const styles = StyleSheet.create({
   rating_container: { justifyContent: "center", width: 70 },
   review_container: {
     justifyContent: "space-around",
-    width: 80,
+    minWidth: 80,
     marginLeft: 10,
+    paddingHorizontal: 10,
   },
   text: { fontSize: 20, color: "#326fa8", fontWeight: "bold" },
   main_container: { backgroundColor: "#fff", width: "100%", height: 200 },
