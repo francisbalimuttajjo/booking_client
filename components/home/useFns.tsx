@@ -5,7 +5,7 @@ const UseFns = (hotel?: Hotel) => {
   const { navigate } = useNavigation<HotelDetailsNavigationProps>();
   const handleNavigation = () => navigate("HotelDetails", { hotel });
   const navigateToProfile = () => navigate("Profile");
-  return { handleNavigation,navigateToProfile };
+  return { handleNavigation, navigateToProfile };
 };
 
 export default UseFns;

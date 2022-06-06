@@ -9,7 +9,7 @@ import * as Location from "expo-location";
 
 const Header = () => {
   const { navigate } = useNavigation<NavigationProps>();
-  const [location, setLocation] =   React.useState<string>("");
+  const [location, setLocation] = React.useState<string>("");
   const handleSearch = () => navigate("Search");
 
   React.useEffect(() => {
@@ -38,10 +38,12 @@ const Header = () => {
         <TouchableOpacity activeOpacity={0.5}>
           <Icon name="align-left" size={30} color="black" />
         </TouchableOpacity>
-        <View style={styles.location_container}>
-          <EvilIcon name="location" size={24} color="black" />
-          <Text>{location}</Text>
-        </View>
+        {location !== "" && (
+          <View style={styles.location_container}>
+            <EvilIcon name="location" size={24} color="black" />
+            <Text>{location}</Text>
+          </View>
+        )}
 
         <View style={styles.search_container}>
           <TouchableOpacity
@@ -51,9 +53,9 @@ const Header = () => {
           >
             <EvilIcon name="search" size={32} color="#326fa8" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.center} activeOpacity={0.5}>
+          <View style={styles.center}>
             <EntypoIcon name="dots-three-vertical" size={20} color="black" />
-          </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
