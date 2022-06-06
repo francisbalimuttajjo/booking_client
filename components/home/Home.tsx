@@ -5,20 +5,24 @@ import Header from "./Header";
 import Greeting from "./Greeting";
 import api from "../../utils/api";
 import Skeleton from "../skeleton/Home";
+import Error from "../reusableComponents/Error";
 import PopularHotelsList from "./PopularHotelsList";
 import { Hotel as HotelType } from "../../types/apiTypes";
 import React from "react";
 
 const Home = () => {
-  const { isLoading: loadingHotel, data: hotels } = useQuery<
-    HotelType[],
-    Error
-  >("HOTELS", api.getHotels, {
-    onError: (err) => {},
-  });
+  const {
+    isLoading,
+    isError,
+    data: hotels,
+  } = useQuery<HotelType[], Error>("HOTELS", api.getHotels);
 
-  if (loadingHotel) {
+  if (isLoading) {
     return <Skeleton />;
+  }
+
+  if (isError) {
+    return <Error title="Something went wrong !" />;
   }
 
   return (

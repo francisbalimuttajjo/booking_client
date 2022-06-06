@@ -6,6 +6,9 @@ interface Props {
   height: number;
   borderRadius?: number;
   margin?: number | string;
+  borderTopLeftRadius?: number;
+  borderTopRightRadius?: number;
+  borderBottomLeftRadius?: number;
 }
 
 const Skeleton = (props: Props) => {
@@ -34,9 +37,12 @@ const Skeleton = (props: Props) => {
         opacity: opacity.current,
         width: props.width,
         height: props.height,
-        backgroundColor: "#d6d0d0",
+        backgroundColor: "#D2DBE2",
         borderRadius: props.borderRadius,
         marginTop: props.margin,
+        borderTopLeftRadius: props.borderTopLeftRadius,
+        borderTopRightRadius: props.borderTopRightRadius,
+        borderBottomLeftRadius: props.borderBottomLeftRadius,
       }}
     />
   );

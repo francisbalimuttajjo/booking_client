@@ -1,34 +1,28 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { StyleSheet, View, ScrollView, Image } from "react-native";
 import Footer from "./Footer";
 import Reviews from "./ReviewList";
 import Services from "./Services";
 import ReadMore from "./ReadMore";
 import api from "../../utils/api";
+import Error from "../reusableComponents/Error";
 import LocationDetails from "./LocationDetails";
+import Skeleton from "../skeleton/HotelDetails";
 import { Hotel, HotelDetailsResponse } from "../../types/apiTypes";
 
 const Details = (props: { hotel: Hotel }) => {
-  const {
-    isFetching,
-    isLoading,
-    isError,
-    data,
-    // error,
-  } = useQuery<HotelDetailsResponse, Error>(
+  const { isLoading, isError, data } = useQuery<HotelDetailsResponse, Error>(
     ["HOTELS_DETAILS", props.hotel.id],
     () => api.getHotel(props.hotel.id)
   );
 
   if (isLoading) {
-    return <Text>Loading</Text>;
+    return <Skeleton />;
   }
-  if (isFetching) {
-    return <Text>Loading</Text>;
-  }
+
   if (isError) {
-    return <Text>error occurred</Text>;
+    return <Error title="Something went wrong" />;
   }
   return (
     <View>
