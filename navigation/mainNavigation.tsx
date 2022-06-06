@@ -34,11 +34,7 @@ const Screen = () => {
             component={HomeScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name={mainRoutes.Search}
-            component={SearchScreen}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name={mainRoutes.Search} component={SearchScreen} />
           <Stack.Screen
             name={mainRoutes.Booking}
             component={BookingScreen}
