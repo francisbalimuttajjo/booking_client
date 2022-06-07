@@ -13,6 +13,7 @@ export enum drawerRoutes {
   Home = "HomePage",
   LogIn = "LogIn",
   SignUp = "SignUp",
+  ForgotPassword = "ForgotPassword",
 }
 
 export type mainStackParams = {
@@ -28,4 +29,5 @@ export type drawerStackParams = {
   HomePage: undefined;
   LogIn: undefined;
   SignUp: undefined;
+  ForgotPassword: undefined;
 };
