@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as Location from "expo-location";
 
 const Header = () => {
-  const { navigate } = useNavigation<NavigationProps>();
+  const { navigate, openDrawer } = useNavigation<NavigationProps>();
   const [location, setLocation] = React.useState<string>("");
   const handleSearch = () => navigate("Search");
 
@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <View>
       <View style={styles.sub_container}>
-        <TouchableOpacity activeOpacity={0.5}>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => openDrawer()}>
           <Icon name="align-left" size={30} color="black" />
         </TouchableOpacity>
         {location !== "" && (

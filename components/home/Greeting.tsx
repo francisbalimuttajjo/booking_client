@@ -7,6 +7,7 @@ import useFns from "./useFns";
 const Greeting = () => {
   const { navigateToProfile } = useFns();
   const { initialState } = useContext(UserContext);
+  console.log("isloggedIn", initialState.isLoggedIn);
 
   return (
     <View>

@@ -1,5 +1,3 @@
-
-
 export type User = {
   email: string;
   firstName: string;
@@ -27,7 +25,7 @@ export type Hotel = {
   noOfRatings: number;
   averageRating: number;
   description: string;
-  reviews?:Review[]
+  reviews?: Review[];
 };
 
 export type HotelDetailsResponse = {
@@ -42,12 +40,13 @@ export type HotelDetailsResponse = {
 export type InitialState = {
   isLoggedIn: boolean;
   user: User;
-  handleLogin: (a: InitialState["user"]) => void;
+  handleLogin: (user: InitialState["user"]) => void;
 };
 
 export type NavigationProps = {
   navigate: (route: string, params?: { id?: number }) => void;
   goBack: () => void;
+  openDrawer: () => void;
 };
 
 export type HotelDetailsNavigationProps = {

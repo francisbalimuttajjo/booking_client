@@ -16,7 +16,7 @@ const ProfileScreen = () => {
   const user1 = {
     firstName: "checking if it workd",
     lastName: "checking if it workd",
-    photo: "nbaf",
+    photo: "",
     email: "uiri",
     id: "opp",
   };

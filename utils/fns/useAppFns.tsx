@@ -2,12 +2,14 @@ import React from "react";
 import api from "../api";
 import { InitialState } from "../../types/apiTypes";
 
+const user = { firstName: "", lastName: "", email: "", photo: "", id: "" };
+
 const UseFns = () => {
   const [isAuthenticating, setIsAuthenticating] = React.useState<boolean>(true);
   const [initialState, setInitialState] = React.useState<
     Omit<InitialState, "handleLogin">
   >({
-    user: { firstName: "", lastName: "", email: "", photo: "", id: "" },
+    user,
     isLoggedIn: false,
   });
 
@@ -20,7 +22,7 @@ const UseFns = () => {
         isLoggedIn: true,
       });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -31,6 +33,15 @@ const UseFns = () => {
       isLoggedIn: true,
     });
   };
+  const handleLogOut = () => {
+    console.log("1", initialState);
+    setInitialState({
+      ...initialState,
+      user,
+      isLoggedIn: false,
+    });
+    console.log("2", initialState);
+  };
 
   return {
     isAuthenticating,
@@ -38,7 +49,7 @@ const UseFns = () => {
     authenticateUser,
     initialState,
     handleLogin,
-
+    handleLogOut,
   };
 };
 
