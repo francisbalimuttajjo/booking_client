@@ -24,7 +24,7 @@ const getTopRatedHotels = async () => {
 const authenticateUser = async () => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post("/users/auth", {
-    token,
+    token: "jj",
   });
 
   return response.data;

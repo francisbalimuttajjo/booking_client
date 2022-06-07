@@ -41,6 +41,7 @@ export type InitialState = {
   isLoggedIn: boolean;
   user: User;
   handleLogin: (user: InitialState["user"]) => void;
+  handleLogOut: () => void;
 };
 
 export type NavigationProps = {

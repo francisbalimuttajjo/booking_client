@@ -11,6 +11,8 @@ export enum mainRoutes {
 export enum drawerRoutes {
   Profile = "Profile",
   Home = "HomePage",
+  LogIn = "LogIn",
+  SignUp = "SignUp",
 }
 
 export type mainStackParams = {
@@ -24,4 +26,6 @@ export type mainStackParams = {
 export type drawerStackParams = {
   Profile: undefined;
   HomePage: undefined;
+  LogIn: undefined;
+  SignUp: undefined;
 };

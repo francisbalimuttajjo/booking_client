@@ -1,13 +1,14 @@
 import React from "react";
 import api from "../api";
 import { InitialState } from "../../types/apiTypes";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const user = { firstName: "", lastName: "", email: "", photo: "", id: "" };
 
 const UseFns = () => {
   const [isAuthenticating, setIsAuthenticating] = React.useState<boolean>(true);
   const [initialState, setInitialState] = React.useState<
-    Omit<InitialState, "handleLogin">
+    Omit<InitialState, "handleLogin" | "handleLogOut">
   >({
     user,
     isLoggedIn: false,
@@ -34,13 +35,15 @@ const UseFns = () => {
     });
   };
   const handleLogOut = () => {
-    console.log("1", initialState);
-    setInitialState({
-      ...initialState,
-      user,
-      isLoggedIn: false,
-    });
-    console.log("2", initialState);
+    AsyncStorage.removeItem("USER_DETAILS")
+      .then(() => {
+        setInitialState({
+          ...initialState,
+          user,
+          isLoggedIn: false,
+        });
+      })
+      .catch((err) => {});
   };
 
   return {

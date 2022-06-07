@@ -22,6 +22,7 @@ const App = () => {
     authenticateUser,
     initialState,
     handleLogin,
+    handleLogOut,
   } = useFns();
 
   if (isAuthenticating) {
@@ -35,7 +36,7 @@ const App = () => {
   }
 
   return (
-    <UserContext.Provider value={{ initialState, handleLogin }}>
+    <UserContext.Provider value={{ initialState, handleLogin, handleLogOut }}>
       <QueryClientProvider client={queryClient}>
         <PaperProvider>
           <Container />

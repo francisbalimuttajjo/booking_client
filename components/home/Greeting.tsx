@@ -1,21 +1,14 @@
 import React, { useContext } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Ionicon from "react-native-vector-icons/Ionicons";
 import UserContext from "../../utils/fns/userContext";
-import useFns from "./useFns";
 
 const Greeting = () => {
-  const { navigateToProfile } = useFns();
   const { initialState } = useContext(UserContext);
-  console.log("isloggedIn", initialState.isLoggedIn);
 
   return (
     <View>
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={navigateToProfile}
-        style={styles.container}
-      >
+      <View style={styles.container}>
         {initialState.user.photo === "" ? (
           <Ionicon name="ios-person-circle-outline" size={52} color="black" />
         ) : (
@@ -26,7 +19,7 @@ const Greeting = () => {
             }}
           />
         )}
-      </TouchableOpacity>
+      </View>
       <View style={styles.sub_container}>
         <Text style={styles.greetings_1}>
           Hi {initialState.user.firstName},
