@@ -22,7 +22,7 @@ const initialState = {
 
 const UseFns = () => {
   const [step, setStep] = React.useState<number>(1);
-  const [error, setError] = React.useState<string>("error");
+  const [error, setError] = React.useState<string>("");
   const { navigate } = useNavigation<NavigationProps>();
   const [formData, setFormData] = React.useState<Props>(initialState);
 
@@ -43,9 +43,13 @@ const UseFns = () => {
   const { isLoading, mutate } = useMutation(
     (user: Props) => api.registerUser(user),
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
         setError("");
-        navigate("Success");
+        navigate("Success", {
+          message: data,
+        });
+        setFormData(initialState);
+        setStep(1);
       },
       onError: (err: {
         response: { data: { status: string; data: string } };

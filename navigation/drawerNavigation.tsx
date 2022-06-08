@@ -4,6 +4,7 @@ import { drawerStackParams, drawerRoutes } from "../types/screenTypes";
 import ProfileScreen from "./screens/profile";
 import LoginScreen from "./screens/login";
 import SignUpScreen from "./screens/signUp";
+import SuccessScreen from "./screens/success";
 import ForgotPasswordScreen from "./screens/forgotPassword";
 import StackNavigator from "./mainNavigation";
 import DrawerContent from "./DrawerContent";
@@ -24,7 +25,11 @@ function DrawerComponent() {
           component={StackNavigator}
           options={{ headerShown: false }}
         />
-
+        <Drawer.Screen
+          name={drawerRoutes.Success}
+          component={SuccessScreen}
+          options={{ headerShown: false }}
+        />
         <Drawer.Screen
           name={drawerRoutes.Profile}
           component={ProfileScreen}
@@ -33,7 +38,7 @@ function DrawerComponent() {
         <Drawer.Screen
           name={drawerRoutes.SignUp}
           component={SignUpScreen}
-           options={{ headerShown: false }}
+          options={{ headerShown: false }}
         />
         <Drawer.Screen
           name={drawerRoutes.ForgotPassword}
