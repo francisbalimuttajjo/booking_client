@@ -44,6 +44,30 @@ const loginUser = async ({
 
   return response.data.data;
 };
+
+const registerUser = async ({
+  email,
+  password,
+  firstName,
+  lastName,
+  passwordConfirm,
+}: {
+  email: string;
+  password: string;
+  lastName: string;
+  firstName: string;
+  passwordConfirm: string;
+}) => {
+  const response = await apiClient.post("/users/register", {
+    email,
+    password,
+    firstName,
+    lastName,
+    passwordConfirm,
+  });
+
+  return response.data.data;
+};
 const searchHotelByName = async (name: string) => {
   const response = await apiClient.get(`/hotels?name=${name}`);
   return response.data;
@@ -61,6 +85,7 @@ const Api = {
   getHotels,
   getHotel,
   loginUser,
+  registerUser,
   authenticateUser,
   getTopRatedHotels,
   searchHotelByName,

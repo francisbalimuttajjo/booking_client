@@ -32,9 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
     height: "34%",
-    // borderRadius: 150,
-    // borderWidth: 2,
-    // borderColor: "#326fa8",
+
   },
   sub_container: { alignSelf: "center", marginTop: 10 },
   text_1: { alignSelf: "center", fontSize: 24, marginTop: 10 },

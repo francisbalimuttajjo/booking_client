@@ -33,7 +33,7 @@ function DrawerComponent() {
         <Drawer.Screen
           name={drawerRoutes.SignUp}
           component={SignUpScreen}
-          options={{ headerShown: false }}
+           options={{ headerShown: false }}
         />
         <Drawer.Screen
           name={drawerRoutes.ForgotPassword}
