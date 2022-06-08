@@ -23,7 +23,7 @@ const UseFns = () => {
         isLoggedIn: true,
       });
     } catch (err) {
-      console.log(err);
+      
     }
   };
 

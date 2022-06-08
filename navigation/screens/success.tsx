@@ -6,12 +6,12 @@ import { drawerStackParams } from "../../types/screenTypes";
 type Props = NativeStackScreenProps<drawerStackParams, "Success">;
 
 const SuccessScreen = ({ route }: Props) => {
-  const { message } = route.params;
+  const { message, title, screen } = route.params;
 
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <Success message={message} />
+        <Success message={message} title={title} screen={screen} />
       </SafeAreaView>
     </SafeAreaProvider>
   );

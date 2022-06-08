@@ -31,5 +31,5 @@ export type drawerStackParams = {
   LogIn: undefined;
   SignUp: undefined;
   ForgotPassword: undefined;
-  Success: { message: string };
+  Success: { message: string; screen: string; title: string };
 };

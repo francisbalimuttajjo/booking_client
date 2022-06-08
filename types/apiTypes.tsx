@@ -45,7 +45,10 @@ export type InitialState = {
 };
 
 export type NavigationProps = {
-  navigate: (route: string, params?: { id?: number; message?: string }) => void;
+  navigate: (
+    route: string,
+    params?: { id?: number; message?: string; screen?: string; title?: string }
+  ) => void;
   goBack: () => void;
   openDrawer: () => void;
 };

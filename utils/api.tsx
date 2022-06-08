@@ -2,6 +2,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const apiClient = axios.create({
+  //baseURL: "http://192.168.43.96:5000/api/v1",
   baseURL: "https://bookingbafra.herokuapp.com/api/v1",
   headers: {
     "Content-type": "application/json",
@@ -45,6 +46,14 @@ const loginUser = async ({
   return response.data.data;
 };
 
+const forgotPassword = async ({ email }: { email: string }) => {
+  const response = await apiClient.post("/users/forgotPassword", {
+    email,
+  });
+
+  return response;
+};
+
 const registerUser = async ({
   email,
   password,
@@ -86,6 +95,7 @@ const Api = {
   getHotel,
   loginUser,
   registerUser,
+  forgotPassword,
   authenticateUser,
   getTopRatedHotels,
   searchHotelByName,

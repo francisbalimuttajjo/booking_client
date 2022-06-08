@@ -5,7 +5,9 @@ import { Title } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationProps } from "../../types/apiTypes";
 
-const Success: React.FC<{ message: string }> = (props) => {
+const Success: React.FC<{ message: string; screen: string; title: string }> = (
+  props
+) => {
   const { navigate } = useNavigation<NavigationProps>();
 
   return (
@@ -18,9 +20,9 @@ const Success: React.FC<{ message: string }> = (props) => {
         <TouchableOpacity
           activeOpacity={0.6}
           style={styles.btn}
-          onPress={() => navigate("LogIn")}
+          onPress={() => navigate(props.screen)}
         >
-          <Title style={{ color: "#fff" }}>Login</Title>
+          <Title style={{ color: "#fff" }}>{props.title}</Title>
         </TouchableOpacity>
       </View>
     </View>
@@ -49,5 +51,5 @@ const styles = StyleSheet.create({
     padding: "5%",
   },
   icon: { justifyContent: "center", alignSelf: "center" },
-  text: { color: "skyblue", textTransform: "capitalize" },
+  text: { color: "skyblue" },
 });

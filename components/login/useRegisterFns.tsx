@@ -46,7 +46,7 @@ const UseFns = () => {
       onSuccess: (data) => {
         setError("");
         navigate("Success", {
-          message: data,
+          message: data,screen:'LogIn',title:'Login'
         });
         setFormData(initialState);
         setStep(1);
