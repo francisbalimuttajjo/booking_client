@@ -1,7 +1,6 @@
-import * as Yup from "yup";
 import React from "react";
 import { Formik, Field } from "formik";
-import { TextInput, Title } from "react-native-paper";
+import { Title } from "react-native-paper";
 import {
   ActivityIndicator,
   StyleSheet,
@@ -9,40 +8,34 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import useFns from "./useReset";
 import Input from "../reusableComponents/Input";
 import Info from "../reusableComponents/Info";
 
 export const Form = () => {
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [isEditing, setIsEditing] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string>("");
-  const validationSchema = Yup.object().shape({
-    FirstName: Yup.string()
-      .trim()
-      .required("First Name is required")
-      .label("FirstName"),
-    LastName: Yup.string()
-      .trim()
-      .required("Last Name is required")
-      .label("LastName"),
-  });
-  const handleSubmit = (values) => console.log("submit", values);
+  const { handleSubmit, loading, error, validationSchema, initialValues } =
+    useFns();
 
   return (
     <Formik
-      initialValues={{ Email: "" }}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       {({ handleSubmit }) => (
         <View>
           <View style={styles.container}>
-            <Title> Hi , Enter your Email </Title>
+            <Title>Enter New Password </Title>
             <Field
               component={Input}
-              name="Email"
-              label="Email"
-              left={<TextInput.Icon name="email" color="#bbbdbd" />}
+              name="CurrentPassword"
+              label="Current Password"
+            />
+            <Field component={Input} name="NewPassword" label="New Password" />
+            <Field
+              component={Input}
+              name="ConfirmPassword"
+              label="Confirm Password"
             />
             {error !== "" && <Info error={error} />}
             <TouchableOpacity

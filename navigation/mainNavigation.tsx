@@ -39,6 +39,7 @@ const Screen = () => {
         <Stack.Screen
           name={mainRoutes.ChangePassword}
           component={ChangePasswordScreen}
+          options={{ title: "Change Password" }}
         />
         <Stack.Screen
           name={mainRoutes.Map}

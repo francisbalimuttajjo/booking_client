@@ -1,14 +1,13 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Title } from "react-native-paper";
 import Icon from "react-native-vector-icons/EvilIcons";
+import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavigationProps } from "../../types/apiTypes";
-import UserContext from "../../utils/fns/userContext";
 
 const Form = () => {
   const { navigate } = useNavigation<NavigationProps>();
-  const { initialState, handleLogOut } = React.useContext(UserContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.sub_container}>

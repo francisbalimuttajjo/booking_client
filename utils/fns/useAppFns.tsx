@@ -22,9 +22,7 @@ const UseFns = () => {
         user: res.data,
         isLoggedIn: true,
       });
-    } catch (err) {
-      
-    }
+    } catch (err) {}
   };
 
   const handleLogin = (user: InitialState["user"]) => {
@@ -35,7 +33,7 @@ const UseFns = () => {
     });
   };
   const handleLogOut = () => {
-    AsyncStorage.removeItem("USER_DETAILS")
+    AsyncStorage.removeItem("BOOKING_TOKEN")
       .then(() => {
         setInitialState({
           ...initialState,

@@ -31,6 +31,31 @@ const authenticateUser = async () => {
   return response.data;
 };
 
+
+
+const updateUserPassword = async ({
+  currentPassword,
+  newPassword,
+  confirmPassword,
+  email,
+}: {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+  email: string;
+}) => {
+  const token = await AsyncStorage.getItem("BOOKING_TOKEN");
+  const response = await apiClient.post("/users/updatePassword", {
+    currentPassword,
+    newPassword,
+    confirmPassword,
+    email,
+    token,
+  });
+
+  return response.data.data;
+};
+
 const updateUser = async ({
   firstName,
   email,
@@ -118,6 +143,7 @@ const Api = {
   updateUser,
   forgotPassword,
   authenticateUser,
+  updateUserPassword,
   getTopRatedHotels,
   searchHotelByName,
   searchHotelByLocation,
