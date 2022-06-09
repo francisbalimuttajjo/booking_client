@@ -7,13 +7,14 @@ type Props = {
   keyboard?: boolean;
   isAmount?: boolean;
   label: string;
-  error?: boolean ;
+  error?: boolean;
 };
 
 const Input: React.FC<Props & FieldProps> = (props) => {
   const {
     keyboard,
     isAmount,
+ 
     label,
     error,
     field: { name, onBlur, onChange, value },

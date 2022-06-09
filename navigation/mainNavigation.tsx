@@ -6,7 +6,9 @@ import HomeScreen from "./screens/home";
 import MapScreen from "./screens/map";
 import SearchScreen from "./screens/search";
 import BookingScreen from "./screens/booking";
+import ProfileScreen from "./screens/profile";
 import HotelDetailsScreen from "./screens/hotelDetails";
+import ChangePasswordScreen from "./screens/changePassword";
 import { mainStackParams, mainRoutes } from "../types/screenTypes";
 
 const Screen = () => {
@@ -28,10 +30,15 @@ const Screen = () => {
           component={HomeScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name={mainRoutes.Profile} component={ProfileScreen} />
         <Stack.Screen
           name={mainRoutes.Booking}
           component={BookingScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={mainRoutes.ChangePassword}
+          component={ChangePasswordScreen}
         />
         <Stack.Screen
           name={mainRoutes.Map}

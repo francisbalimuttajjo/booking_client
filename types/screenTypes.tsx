@@ -1,6 +1,8 @@
 import { Hotel } from "./apiTypes";
 
 export enum mainRoutes {
+  Profile = "Profile",
+  ChangePassword = "ChangePassword",
   Home = "Home",
   Booking = "Booking",
   HotelDetails = "HotelDetails",
@@ -9,7 +11,6 @@ export enum mainRoutes {
 }
 
 export enum drawerRoutes {
-  Profile = "Profile",
   Success = "Success",
   Home = "HomePage",
   LogIn = "LogIn",
@@ -18,6 +19,8 @@ export enum drawerRoutes {
 }
 
 export type mainStackParams = {
+  Profile: undefined;
+  ChangePassword: undefined;
   Home: undefined;
   Booking: undefined;
   Search: undefined;
@@ -26,7 +29,6 @@ export type mainStackParams = {
 };
 
 export type drawerStackParams = {
-  Profile: undefined;
   HomePage: undefined;
   LogIn: undefined;
   SignUp: undefined;

@@ -2,7 +2,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { drawerStackParams, drawerRoutes } from "../types/screenTypes";
 import ForgotPasswordScreen from "./screens/forgotPassword";
-import ProfileScreen from "./screens/profile";
 import LoginScreen from "./screens/login";
 import SignUpScreen from "./screens/signUp";
 import SuccessScreen from "./screens/success";
@@ -33,11 +32,7 @@ function DrawerComponent() {
           component={SuccessScreen}
           options={{ headerShown: false }}
         />
-        <Drawer.Screen
-          name={drawerRoutes.Profile}
-          component={ProfileScreen}
-          options={{ headerShown: false }}
-        />
+      
         <Drawer.Screen
           name={drawerRoutes.SignUp}
           component={SignUpScreen}
