@@ -6,7 +6,7 @@ import PersonalInformation from "./PersonalInformation";
 
 const Profile = () => {
   return (
-    <ScrollView style={{}}>
+    <ScrollView >
       <Image />
       <PersonalInformation />
       <ChangePassword />

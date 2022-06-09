@@ -9,6 +9,7 @@ const UserContext = React.createContext({
 
   handleLogin: (a: InitialState["user"]): void => {},
   handleLogOut: (): void => {},
+  updateProfilePic: (photo: string): void => {},
 });
 
 export default UserContext;

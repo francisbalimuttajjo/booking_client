@@ -23,6 +23,7 @@ const App = () => {
     initialState,
     handleLogin,
     handleLogOut,
+    updateProfilePic,
   } = useFns();
 
   if (isAuthenticating) {
@@ -36,7 +37,9 @@ const App = () => {
   }
 
   return (
-    <UserContext.Provider value={{ initialState, handleLogin, handleLogOut }}>
+    <UserContext.Provider
+      value={{ initialState, handleLogin, handleLogOut, updateProfilePic }}
+    >
       <QueryClientProvider client={queryClient}>
         <PaperProvider>
           <Container />

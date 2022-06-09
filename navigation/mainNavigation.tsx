@@ -7,6 +7,7 @@ import MapScreen from "./screens/map";
 import SearchScreen from "./screens/search";
 import BookingScreen from "./screens/booking";
 import ProfileScreen from "./screens/profile";
+import CameraScreen from "./screens/camera";
 import HotelDetailsScreen from "./screens/hotelDetails";
 import ChangePasswordScreen from "./screens/changePassword";
 import { mainStackParams, mainRoutes } from "../types/screenTypes";
@@ -34,6 +35,11 @@ const Screen = () => {
         <Stack.Screen
           name={mainRoutes.Booking}
           component={BookingScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={mainRoutes.Camera}
+          component={CameraScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

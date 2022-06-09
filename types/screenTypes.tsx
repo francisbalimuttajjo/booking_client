@@ -5,6 +5,7 @@ export enum mainRoutes {
   ChangePassword = "ChangePassword",
   Home = "Home",
   Booking = "Booking",
+  Camera = "Camera",
   HotelDetails = "HotelDetails",
   Search = "Search",
   Map = "Map",
@@ -22,6 +23,7 @@ export type mainStackParams = {
   Profile: undefined;
   ChangePassword: undefined;
   Home: undefined;
+  Camera: undefined;
   Booking: undefined;
   Search: undefined;
   Map: { hotel: Hotel };

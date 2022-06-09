@@ -3,6 +3,13 @@ import { useMutation, useQueryClient } from "react-query";
 import { Hotel } from "../../types/apiTypes";
 import api from "../../utils/api";
 
+type Response = {
+  data: {
+    count: number;
+    rows: Hotel[];
+  };
+};
+
 const UseFns = () => {
   const queryClient = useQueryClient();
 
@@ -32,7 +39,7 @@ const UseFns = () => {
   const { isLoading: loadingName, mutate: mutateName } = useMutation(
     (searchQuery: string) => api.searchHotelByName(searchQuery),
     {
-      onSuccess: async (data) => {
+      onSuccess: async (data: Response) => {
         setData(data.data.rows);
         setInformation(`Search Results: ${data.data.count}`);
         queryClient.setQueryData("SEARCH_RESULTS_NAME", searchQuery);
@@ -46,7 +53,7 @@ const UseFns = () => {
   const { isLoading: loadingLocation, mutate: mutateLocation } = useMutation(
     (searchQuery: string) => api.searchHotelByLocation(searchQuery),
     {
-      onSuccess: async (data) => {
+      onSuccess: async (data: Response) => {
         setData(data.data.rows);
         setInformation(`Search Results: ${data.data.count}`);
         queryClient.setQueryData("SEARCH_RESULTS_LOCATION", searchQuery);
@@ -59,11 +66,11 @@ const UseFns = () => {
   const { isLoading: loadingPrice, mutate: mutatePrice } = useMutation(
     (price: string) => api.searchHotelByPrice(price),
     {
-      onSuccess: async (data) => {
+      onSuccess: async (data: Response) => {
         setData(data.data.rows);
         setInformation(`Search Results: ${data.data.count}`);
       },
-      onError: (err) => {
+      onError: () => {
         setInformation(`Something went wrong`);
       },
     }

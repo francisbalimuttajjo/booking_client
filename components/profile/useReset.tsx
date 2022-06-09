@@ -11,7 +11,7 @@ type Values = {
   ConfirmPassword: string;
 };
 
-const initialValues = {
+const initialValues: Values = {
   CurrentPassword: "",
   NewPassword: "",
   ConfirmPassword: "",
@@ -61,6 +61,6 @@ export const UseFns = () => {
       });
   };
 
-  return { handleSubmit, loading, error, validationSchema, initialValues };
+  return { handleSubmit, loading, error, validationSchema, initialValues,navigate };
 };
 export default UseFns;

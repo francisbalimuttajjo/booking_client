@@ -32,6 +32,13 @@ const UseFns = () => {
       isLoggedIn: true,
     });
   };
+
+  const updateProfilePic = (photo: string) => {
+    let new_state = { ...initialState };
+    new_state.user.photo = photo;
+    setInitialState(new_state);
+  };
+
   const handleLogOut = () => {
     AsyncStorage.removeItem("BOOKING_TOKEN")
       .then(() => {
@@ -47,6 +54,7 @@ const UseFns = () => {
   return {
     isAuthenticating,
     setIsAuthenticating,
+    updateProfilePic,
     authenticateUser,
     initialState,
     handleLogin,

@@ -4,9 +4,11 @@ import Icon from "react-native-vector-icons/Feather";
 import { Avatar, Title, Caption } from "react-native-paper";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import UserContext from "../../utils/fns/userContext";
+import useFns from "./useReset";
 
 const Image = () => {
   const { initialState } = React.useContext(UserContext);
+  const { navigate } = useFns();
 
   const USER_IMAGE = initialState.user.photo;
 
@@ -18,10 +20,11 @@ const Image = () => {
             <Icon name="user" size={120} color="black" />
           </View>
         ) : (
-          <Avatar.Image size={120} source={{ uri: initialState.user.photo }} />
+          <Avatar.Image size={120} source={{ uri: USER_IMAGE }} />
         )}
         <TouchableOpacity
           activeOpacity={0.7}
+          onPress={() => navigate("Camera")}
           style={[styles.btn, styles.image_btn]}
         >
           <Ionicon name="plus-a" size={15} color="white" />
