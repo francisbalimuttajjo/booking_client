@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { mainStackParams } from "../../types/screenTypes";
+import Map from "../../components/map/Map";
 
 type Props = NativeStackScreenProps<mainStackParams, "Map">;
 
@@ -11,10 +12,10 @@ const MapScreen = ({ route }: Props) => {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <Text>{hotel.name}</Text>
+        <Map hotel={hotel} />
       </SafeAreaView>
     </SafeAreaProvider>
   );
 };
 
-export default MapScreen ;
+export default MapScreen;

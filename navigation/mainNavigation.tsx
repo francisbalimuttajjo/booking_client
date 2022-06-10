@@ -50,7 +50,11 @@ const Screen = () => {
         <Stack.Screen
           name={mainRoutes.Map}
           component={MapScreen}
-          options={{ title: "" }}
+          options={({ route }) => {
+            return {
+              title: route.params.hotel.name,
+            };
+          }}
         />
 
         <Stack.Screen name={mainRoutes.Search} component={SearchScreen} />

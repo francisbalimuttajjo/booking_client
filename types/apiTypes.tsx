@@ -26,6 +26,7 @@ export type Hotel = {
   averageRating: number;
   description: string;
   reviews?: Review[];
+  location: [{ latitude: number; longitude: number }];
 };
 
 export type HotelDetailsResponse = {

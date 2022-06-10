@@ -63,7 +63,8 @@ const UseFns = () => {
     {
       onSuccess: async (data: Response) => {
         setData(data.data.rows);
-        setInformation(`Search Results: ${data.data.count}`);
+
+         setInformation(`Search Results: ${data.data.count}`);
       },
       onError: () => {
         setInformation(`Something went wrong`);
