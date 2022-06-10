@@ -31,11 +31,6 @@ const UseFns = () => {
     return arr;
   }, []);
 
-  const hotelPricesArray = hotels?.reduce((arr: string[], hotel) => {
-    arr.push(`$ ${hotel.price.toString()}`);
-    return arr;
-  }, []);
-
   const { isLoading: loadingName, mutate: mutateName } = useMutation(
     (searchQuery: string) => api.searchHotelByName(searchQuery),
     {
@@ -87,13 +82,14 @@ const UseFns = () => {
 
   const handlePrice = (price: string) => {
     setIsPriceOpen(false);
-    const data = price.split(" ");
-    mutatePrice(data[1]);
+    const arr = price.split("-");
+    const lowerLimit = arr[0].replace("$", "");
+    const upperLimit = arr[1].replace("$", "");
+    mutatePrice(`${lowerLimit}-${upperLimit}`);
   };
 
   return {
     hotelLocationsArray,
-    hotelPricesArray,
     information,
     searchQuery,
     data,

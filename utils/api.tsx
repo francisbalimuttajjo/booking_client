@@ -145,8 +145,8 @@ const searchHotelByLocation = async (location: string) => {
   const response = await apiClient.get(`/hotels?location=${location}`);
   return response.data;
 };
-const searchHotelByPrice = async (price: string) => {
-  const response = await apiClient.get(`/hotels?price=${price}`);
+const searchHotelByPrice = async (priceRange: string) => {
+  const response = await apiClient.get(`/hotels?range=${priceRange}`);
   return response.data;
 };
 

@@ -15,7 +15,9 @@ interface Props {
 }
 
 const Filter = (props: Props) => {
-  const { hotelLocationsArray, hotelPricesArray } = useFns();
+  const { hotelLocationsArray } = useFns();
+
+  const data = ["$0-$50", "$50-$100", "$100-$150", "$150-$200"];
 
   return (
     <View style={styles.container}>
@@ -27,7 +29,7 @@ const Filter = (props: Props) => {
           isVisible={props.isPriceOpen}
           onDismiss={props.onDismissPrice}
           handlePress={props.openPrice}
-          data={[...new Set(hotelPricesArray)]}
+          data={data}
           handleMenuItemPress={props.handlePrice}
         />
         <MenuComponent
