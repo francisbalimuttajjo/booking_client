@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { NavigationProps, Hotel } from "../../types/apiTypes";
+import { HotelDetailsNavigationProps, Hotel } from "../../types/apiTypes";
 
 const Footer = (props: { hotel?: Hotel }) => {
-  const { navigate } = useNavigation<NavigationProps>();
-  
+  const { navigate } = useNavigation<HotelDetailsNavigationProps>();
+
   return (
     <View style={styles.container}>
       <View style={styles.price_container}>
@@ -13,7 +13,7 @@ const Footer = (props: { hotel?: Hotel }) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => navigate("Booking")}
+        onPress={() => navigate("Booking", { hotel: props.hotel })}
         activeOpacity={0.7}
         style={{
           ...styles.btn,

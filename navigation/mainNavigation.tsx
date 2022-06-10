@@ -35,7 +35,7 @@ const Screen = () => {
         <Stack.Screen
           name={mainRoutes.Booking}
           component={BookingScreen}
-          options={{ headerShown: false }}
+          options={{ title: "Confirm & Pay" }}
         />
         <Stack.Screen
           name={mainRoutes.Camera}
@@ -70,6 +70,7 @@ const Screen = () => {
                   // disabled={loading}
                   onPress={async () => {
                     console.log("pressed");
+                    navigation.openDrawer();
                   }}
                   activeOpacity={0.6}
                   style={styles.btn}

@@ -1,7 +1,5 @@
 import React from "react";
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/Entypo";
-import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { View, StyleSheet } from "react-native";
 import { Title } from "react-native-paper";
 import Item from "./Item";
 
@@ -12,30 +10,15 @@ const data = [
 ];
 
 const Others = () => {
-  const [readMore, setReadMore] = React.useState<boolean>(true);
-
   return (
     <View style={styles.container}>
       <Title style={{ fontSize: 24 }}>Things To Know</Title>
       <View style={styles.sub_container}>
         <Title style={styles.title}>House Rules</Title>
-        {readMore ? (
-          <TouchableOpacity onPress={() => setReadMore(false)}>
-            <Icon name="chevron-thin-down" size={20} color="#326fa8" />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity onPress={() => setReadMore(true)}>
-            <Icon name="chevron-thin-up" size={20} color="#326fa8" />
-          </TouchableOpacity>
-        )}
       </View>
-      {!readMore && (
-        <>
-          {data.map((item, index) => (
-            <Item item={item} key={index} />
-          ))}
-        </>
-      )}
+      {data.map((item, index) => (
+        <Item item={item} key={index} />
+      ))}
     </View>
   );
 };
@@ -54,6 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: "90%",
+    marginTop: "5%",
     alignSelf: "center",
   },
   title: { flex: 1, fontSize: 18 },

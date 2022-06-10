@@ -24,7 +24,7 @@ export type mainStackParams = {
   ChangePassword: undefined;
   Home: undefined;
   Camera: undefined;
-  Booking: undefined;
+  Booking: { hotel: Hotel };
   Search: undefined;
   Map: { hotel: Hotel };
   HotelDetails: { hotel: Hotel };

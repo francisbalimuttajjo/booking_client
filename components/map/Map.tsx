@@ -1,7 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import MapView, { Marker } from "react-native-maps";
-import { Title } from "react-native-paper";
+import { ScrollView,  View } from "react-native";
 import { Hotel } from "../../types/apiTypes";
 import OtherThings from "./OtherThings";
 import Map from "./MapComponent";

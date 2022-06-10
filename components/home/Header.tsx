@@ -35,7 +35,13 @@ const Header = () => {
   return (
     <View>
       <View style={styles.sub_container}>
-        <TouchableOpacity activeOpacity={0.5} onPress={() => openDrawer()}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => {
+            console.log("clicked");
+            openDrawer();
+          }}
+        >
           <Icon name="align-left" size={30} color="black" />
         </TouchableOpacity>
         {location !== "" && (

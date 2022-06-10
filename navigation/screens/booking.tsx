@@ -1,11 +1,16 @@
-import { View, Text } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import Booking from "../../components/booking/Booking";
+import { mainStackParams } from "../../types/screenTypes";
 
-const BookingScreen = () => {
+type Props = NativeStackScreenProps<mainStackParams, "Booking">;
+
+const BookingScreen = ({ route }: Props) => {
+  const { hotel } = route.params;
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <Text>Booking screen </Text>
+        <Booking hotel={hotel} />
       </SafeAreaView>
     </SafeAreaProvider>
   );
