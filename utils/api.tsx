@@ -54,6 +54,31 @@ const updateUserPassword = async ({
   return response.data.data;
 };
 
+// /hotels/:hotelId/booking
+//hotel_id, checkin_date, nights, cash_paid, user'
+
+const bookHotel = async ({
+  hotel_Id,
+  checkin_date,
+  nights,
+  cash_paid,
+}: {
+  hotel_Id: number;
+  checkin_date: string | Date;
+  nights: number;
+  cash_paid: number;
+}) => {
+  const token = await AsyncStorage.getItem("BOOKING_TOKEN");
+  const response = await apiClient.post(`/hotels/${hotel_Id}/booking`, {
+    checkin_date,
+    nights,
+    cash_paid,
+    token,
+  });
+
+  return response.data.data;
+};
+
 const updateUser = async ({
   firstName,
   email,
@@ -153,6 +178,7 @@ const searchHotelByPrice = async (priceRange: string) => {
 const Api = {
   getHotels,
   getHotel,
+  bookHotel,
   loginUser,
   registerUser,
   updateUser,

@@ -28,7 +28,7 @@ const ImageComponent = (props: { hotel: Hotel }) => {
 
 export default ImageComponent;
 const styles = StyleSheet.create({
-  container: { backgroundColor: "#fff", height: 120 },
+  container: { backgroundColor: "#fff", height: 150, paddingVertical: "5%" },
   name: { textTransform: "capitalize", fontSize: 16 },
   image: { height: 100, width: 100 },
   hotel_container: {

@@ -35,7 +35,7 @@ const Screen = () => {
         <Stack.Screen
           name={mainRoutes.Booking}
           component={BookingScreen}
-          options={{ title: "Confirm & Pay" }}
+          options={{ title: "Confirm & Book" }}
         />
         <Stack.Screen
           name={mainRoutes.Camera}

@@ -1,33 +1,25 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import Details from "./Details";
+import Payment from "./Payment";
 import Image from "./ImageComponent";
+import useFns from "./useFns";
 import { Hotel } from "../../types/apiTypes";
-import { getDate } from "../../utils/fns/others";
 
 const Booking = (props: { hotel: Hotel }) => {
-  const [checkinDate, setCheckinDate] = React.useState<Date>(new Date());
-  const [isDatePickerVisible, setDatePickerVisibility] =
-    React.useState<boolean>(false);
-  const [nights, setNights] = React.useState<number>(1);
-
-  const showDatePicker = () => setDatePickerVisibility(true);
-
-  const hideDatePicker = () => setDatePickerVisibility(false);
-
-  const handleConfirm = (date: Date) => {
-    setCheckinDate(date);
-  };
-
-  const increaseNights = () => setNights((nights) => nights + 1);
-  const reduceNights = () => {
-    if (nights === 1) {
-      return;
-    }
-    setNights((nights) => nights - 1);
-  };
-
-  const { date } = getDate(checkinDate);
+  const {
+    handleSubmit,
+    date,
+    reduceNights,
+    increaseNights,
+    handleConfirm,
+    hideDatePicker,
+    isDatePickerVisible,
+    showDatePicker,
+    error,
+    loading,
+    nights,
+  } = useFns({ hotel: props.hotel });
 
   return (
     <ScrollView>
@@ -41,6 +33,13 @@ const Booking = (props: { hotel: Hotel }) => {
         nights={nights}
         reduceNights={reduceNights}
         increaseNights={increaseNights}
+      />
+      <Payment
+        hotel={props.hotel}
+        nights={nights}
+        handleSubmit={handleSubmit}
+        loading={loading}
+        error={error}
       />
     </ScrollView>
   );

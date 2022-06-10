@@ -34,7 +34,7 @@ const Details = (props: Props) => {
           </View>
         </View>
         <Caption style={{ fontSize: 16, marginTop: "5%" }}>
-          Make sure to check your date before making any sort of payment.
+          Make sure to check your date before confirming .
         </Caption>
         <View style={styles.nights_container}>
           <View style={styles.icon_container}>
@@ -50,7 +50,11 @@ const Details = (props: Props) => {
                 disabled={props.nights === 1}
                 onPress={props.reduceNights}
               >
-                <EvilIcon name="minus" size={40} color="#326fa8" />
+                <EvilIcon
+                  name="minus"
+                  size={40}
+                  color={props.nights === 1 ? "#cdd1ce" : "#326fa8"}
+                />
               </TouchableOpacity>
               <Title>{props.nights}</Title>
               <TouchableOpacity onPress={props.increaseNights}>
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: "3%",
     backgroundColor: "#fff",
-    paddingVertical: "2%",
+    paddingVertical: "5%",
   },
   sub_container: { width: "80%", alignSelf: "center" },
   nights_title: {
