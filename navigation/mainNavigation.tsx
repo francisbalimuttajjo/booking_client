@@ -8,13 +8,16 @@ import SearchScreen from "./screens/search";
 import BookingScreen from "./screens/booking";
 import ProfileScreen from "./screens/profile";
 import CameraScreen from "./screens/camera";
+import ReviewScreen from "./screens/review";
 import HotelDetailsScreen from "./screens/hotelDetails";
 import ChangePasswordScreen from "./screens/changePassword";
 import { mainStackParams, mainRoutes } from "../types/screenTypes";
+import { Review } from "../types/apiTypes";
+import useFns from "../components/profile/useFns";
 
 const Screen = () => {
   const Stack = createStackNavigator<mainStackParams>();
-  const test = true;
+  const { initialState } = useFns();
 
   return (
     <Stack.Navigator>
@@ -30,6 +33,52 @@ const Screen = () => {
           name={mainRoutes.Home}
           component={HomeScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={mainRoutes.HotelDetails}
+          component={HotelDetailsScreen}
+          options={({ navigation, route }) => {
+            let REVIEWS: Review[] | undefined = route.params.hotel.reviews;
+            let IS_REVIEWED: boolean = false;
+
+            if (REVIEWS !== undefined) {
+              const MY_REVIEWS = REVIEWS.filter(
+                (review) => review.user === initialState.user.email
+              );
+
+              if (MY_REVIEWS.length) {
+                IS_REVIEWED = true;
+              }
+            }
+
+            return {
+              title: "",
+              headerRight: () => (
+                <TouchableOpacity
+                  onPress={async () => {
+                    navigation.navigate("Review", {
+                      hotel: route.params.hotel,
+                    });
+                  }}
+                  disabled={IS_REVIEWED}
+                  activeOpacity={0.6}
+                  style={styles.btn}
+                >
+                  {IS_REVIEWED && (
+                    <Ionicon name="heart" size={26} color="red" />
+                  )}
+                  {!IS_REVIEWED && (
+                    <Ionicon name="hearto" size={26} color="black" />
+                  )}
+                </TouchableOpacity>
+              ),
+            };
+          }}
+        />
+        <Stack.Screen
+          name={mainRoutes.Review}
+          component={ReviewScreen}
+          options={{ title: "" }}
         />
         <Stack.Screen name={mainRoutes.Profile} component={ProfileScreen} />
         <Stack.Screen
@@ -58,30 +107,6 @@ const Screen = () => {
         />
 
         <Stack.Screen name={mainRoutes.Search} component={SearchScreen} />
-
-        <Stack.Screen
-          name={mainRoutes.HotelDetails}
-          component={HotelDetailsScreen}
-          options={({ navigation, route }) => {
-            return {
-              title: "",
-              headerRight: () => (
-                <TouchableOpacity
-                  // disabled={loading}
-                  onPress={async () => {
-                    console.log("pressed");
-                    navigation.openDrawer();
-                  }}
-                  activeOpacity={0.6}
-                  style={styles.btn}
-                >
-                  {test && <Ionicon name="heart" size={26} color="red" />}
-                  {!test && <Ionicon name="hearto" size={26} color="black" />}
-                </TouchableOpacity>
-              ),
-            };
-          }}
-        />
       </Stack.Group>
     </Stack.Navigator>
   );

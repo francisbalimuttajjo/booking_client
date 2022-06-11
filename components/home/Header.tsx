@@ -38,7 +38,7 @@ const Header = () => {
         <TouchableOpacity
           activeOpacity={0.5}
           onPress={() => {
-            console.log("clicked");
+         
             openDrawer();
           }}
         >

@@ -16,7 +16,7 @@ const Details = (props: { hotel: Hotel }) => {
     ["HOTELS_DETAILS", props.hotel.id],
     () => api.getHotel(props.hotel.id)
   );
-
+    
   if (isLoading) {
     return <Skeleton />;
   }

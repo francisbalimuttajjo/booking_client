@@ -9,6 +9,7 @@ export enum mainRoutes {
   HotelDetails = "HotelDetails",
   Search = "Search",
   Map = "Map",
+  Review = "Review",
 }
 
 export enum drawerRoutes {
@@ -28,6 +29,7 @@ export type mainStackParams = {
   Search: undefined;
   Map: { hotel: Hotel };
   HotelDetails: { hotel: Hotel };
+  Review: { hotel: Hotel };
 };
 
 export type drawerStackParams = {

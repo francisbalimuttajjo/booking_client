@@ -1,6 +1,36 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+type Props = {
+  register: {
+    email: string;
+    password: string;
+    lastName: string;
+    firstName: string;
+    passwordConfirm: string;
+  };
+  login: { email: string; password: string };
+  updateProfile: { email: string; photo: string };
+  updateUser: { email: string; firstName: string; lastName: string };
+  bookHotel: {
+    hotel_Id: number;
+    checkin_date: string | Date;
+    nights: number;
+    cash_paid: number;
+  };
+  updatePassword: {
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+    email: string;
+  };
+  reviewHotel: {
+    hotel_Id: number;
+    review: string;
+    rating: number;
+  };
+};
+
 const apiClient = axios.create({
   //baseURL: "http://192.168.43.96:5000/api/v1",
   baseURL: "https://bookingbafra.herokuapp.com/api/v1",
@@ -36,12 +66,7 @@ const updateUserPassword = async ({
   newPassword,
   confirmPassword,
   email,
-}: {
-  currentPassword: string;
-  newPassword: string;
-  confirmPassword: string;
-  email: string;
-}) => {
+}: Props["updatePassword"]) => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post("/users/updatePassword", {
     currentPassword,
@@ -54,20 +79,26 @@ const updateUserPassword = async ({
   return response.data.data;
 };
 
-// /hotels/:hotelId/booking
-//hotel_id, checkin_date, nights, cash_paid, user'
+const reviewHotel = async ({
+  hotel_Id,
+  review,
+  rating,
+}: Props["reviewHotel"]) => {
+  const token = await AsyncStorage.getItem("BOOKING_TOKEN");
+  const response = await apiClient.post(`/hotels/${hotel_Id}/reviews`, {
+    review,
+    rating,
+    token,
+  });
 
+  return response.data.data;
+};
 const bookHotel = async ({
   hotel_Id,
   checkin_date,
   nights,
   cash_paid,
-}: {
-  hotel_Id: number;
-  checkin_date: string | Date;
-  nights: number;
-  cash_paid: number;
-}) => {
+}: Props["bookHotel"]) => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post(`/hotels/${hotel_Id}/booking`, {
     checkin_date,
@@ -83,11 +114,7 @@ const updateUser = async ({
   firstName,
   email,
   lastName,
-}: {
-  firstName: string;
-  lastName: string;
-  email: string;
-}) => {
+}: Props["updateUser"]) => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post("/users/updateMe", {
     firstName,
@@ -102,10 +129,7 @@ const updateUser = async ({
 const updateProfilePicture = async ({
   photo,
   email,
-}: {
-  photo: string;
-  email: string;
-}) => {
+}: Props["updateProfile"]) => {
   const token = await AsyncStorage.getItem("BOOKING_TOKEN");
   const response = await apiClient.post("/users/updateMe", {
     photo,
@@ -116,13 +140,7 @@ const updateProfilePicture = async ({
   return response.data.data;
 };
 
-const loginUser = async ({
-  email,
-  password,
-}: {
-  email: string;
-  password: string;
-}) => {
+const loginUser = async ({ email, password }: Props["login"]) => {
   const response = await apiClient.post("/users/login", {
     email,
     password,
@@ -145,13 +163,7 @@ const registerUser = async ({
   firstName,
   lastName,
   passwordConfirm,
-}: {
-  email: string;
-  password: string;
-  lastName: string;
-  firstName: string;
-  passwordConfirm: string;
-}) => {
+}: Props["register"]) => {
   const response = await apiClient.post("/users/register", {
     email,
     password,
@@ -176,6 +188,7 @@ const searchHotelByPrice = async (priceRange: string) => {
 };
 
 const Api = {
+  reviewHotel,
   getHotels,
   getHotel,
   bookHotel,
