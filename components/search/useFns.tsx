@@ -80,9 +80,7 @@ const UseFns = () => {
     setSearchQuery(searchQuery);
   };
   const handleSearch = () => {
-    if (searchQuery.length < 1) {
-      return;
-    }
+  
     mutateName(searchQuery);
   };
   const handlePrice = (price: string) => {

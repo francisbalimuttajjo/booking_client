@@ -15,8 +15,8 @@ const UseFns = (props: { hotel: Hotel }) => {
   const onChangeText = (review: string) => setReview(review);
 
   const handleSubmit = () => {
-    if (review.length < 10) {
-      setError("Please provide a review");
+    if (review.length < 2) {
+      setError("Please provide a valid review");
       return;
     }
     setLoading(true);
@@ -24,7 +24,12 @@ const UseFns = (props: { hotel: Hotel }) => {
       .reviewHotel({ hotel_Id: props.hotel.id, rating, review })
       .then(() => {
         setLoading(false);
-        navigate("Home");
+
+        navigate("Success", {
+          message: "Thanks For The Feedback",
+          screen: "Home",
+          title: "Home",
+        });
       })
       .catch((err) => {
         setLoading(false);

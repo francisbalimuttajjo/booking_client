@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import { Caption, Title } from "react-native-paper";
+import { ActivityIndicator, Caption, Title } from "react-native-paper";
 import { useQueryClient } from "react-query";
 import { Hotel } from "../../types/apiTypes";
 import api from "../../utils/api";
@@ -59,7 +59,11 @@ const Booking = (props: Booking) => {
           </View>
           <View style={styles.btn_container}>
             <TouchableOpacity disabled={loading} onPress={cancelBooking}>
-              <Text>Cancel</Text>
+              {!loading ? (
+                <Text>Cancel</Text>
+              ) : (
+                <ActivityIndicator size="small" color="#326fa8" />
+              )}
             </TouchableOpacity>
           </View>
         </View>
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   caption: { fontSize: 18, marginTop: 7, marginLeft: 10 },
-  title: { opacity: 0.7, textTransform: "capitalize" },
+  title: { opacity: 0.7, textTransform: "capitalize", color: "#326fa8" },
   sub_container: { width: "90%", alignSelf: "center" },
   date_container: { height: "25%", flexDirection: "row" },
   item_container: { flexDirection: "row", height: "75%" },

@@ -1,6 +1,5 @@
 import React from "react";
 import { FlatList, View } from "react-native";
-import { Title } from "react-native-paper";
 import { useQuery } from "react-query";
 import api from "../../utils/api";
 import Error from "../reusableComponents/Error";
@@ -18,7 +17,7 @@ const Booking = () => {
     isLoading,
     isError,
     data: bookings,
-  } = useQuery<Props, Error>("MY_BOOKINGS", api.getBookings, {});
+  } = useQuery<Props, Error>("MY_BOOKINGS", api.getBookings);
 
   if (isLoading) {
     return <Skeleton />;

@@ -27,6 +27,7 @@ const Services = (props: { reviews: Hotel["reviews"] }) => {
       <Text style={styles.text}>Other Services</Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           ...styles.flatList,
           paddingBottom: props?.reviews?.length == undefined ? "65%" : "5%",

@@ -12,6 +12,7 @@ const Reviews = (props: { reviews?: ReviewType[] }) => {
       <Text style={styles.text}>What People Say</Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.flatList}
         data={props.reviews}
         renderItem={(review) => <Review review={review.item} />}
