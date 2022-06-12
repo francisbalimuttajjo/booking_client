@@ -53,7 +53,7 @@ const UseFns = (props: { hotel: Hotel }) => {
         setError(err.response.data);
       });
   };
-
+ 
   return {
     handleSubmit,
     date,
@@ -66,6 +66,7 @@ const UseFns = (props: { hotel: Hotel }) => {
     error,
     loading,
     nights,
+
   };
 };
 

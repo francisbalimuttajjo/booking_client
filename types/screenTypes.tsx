@@ -5,18 +5,15 @@ export enum mainRoutes {
   ChangePassword = "ChangePassword",
   Home = "Home",
   Booking = "Booking",
+  MyBookings = "MyBookings",
   Camera = "Camera",
   HotelDetails = "HotelDetails",
   Search = "Search",
   Map = "Map",
   Review = "Review",
-}
-
-export enum drawerRoutes {
   Success = "Success",
-  Home = "HomePage",
-  LogIn = "LogIn",
   SignUp = "SignUp",
+  LogIn = "LogIn",
   ForgotPassword = "ForgotPassword",
 }
 
@@ -24,18 +21,15 @@ export type mainStackParams = {
   Profile: undefined;
   ChangePassword: undefined;
   Home: undefined;
+  MyBookings: undefined;
   Camera: undefined;
   Booking: { hotel: Hotel };
   Search: undefined;
   Map: { hotel: Hotel };
   HotelDetails: { hotel: Hotel };
   Review: { hotel: Hotel };
-};
-
-export type drawerStackParams = {
-  HomePage: undefined;
-  LogIn: undefined;
-  SignUp: undefined;
-  ForgotPassword: undefined;
   Success: { message: string; screen: string; title: string };
+  SignUp: undefined;
+  LogIn: undefined;
+  ForgotPassword: undefined;
 };

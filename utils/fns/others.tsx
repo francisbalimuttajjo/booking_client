@@ -1,19 +1,10 @@
 const getDate = (val: Date | string) => {
   let date = new Date(val);
-
-  //getting time from string
-  const time = date.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  //removing seconds from time
-  const splittedTime = time.split(":");
-  const timeWithoutSeconds = `${splittedTime[0]}:${splittedTime[1]}`;
+  const new_date = date.toString().split(" ");
+  const date_string_to_display = `${new_date[1]} ${new_date[2]} , ${new_date[3]}`;
 
   return {
-    date: date.toDateString(),
-    time: timeWithoutSeconds,
+    date: date_string_to_display,
   };
 };
 

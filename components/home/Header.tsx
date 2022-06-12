@@ -6,11 +6,14 @@ import EntypoIcon from "react-native-vector-icons/Entypo";
 import { NavigationProps } from "../../types/apiTypes";
 import { useNavigation } from "@react-navigation/native";
 import * as Location from "expo-location";
+import BottomSheet from "./BottomSheet";
 
 const Header = () => {
-  const { navigate, openDrawer } = useNavigation<NavigationProps>();
+  const { navigate } = useNavigation<NavigationProps>();
   const [location, setLocation] = React.useState<string>("");
   const handleSearch = () => navigate("Search");
+  const [open, setIsOpen] = React.useState(false);
+  const handleClose = () => setIsOpen(false);
 
   React.useEffect(() => {
     (async () => {
@@ -33,13 +36,12 @@ const Header = () => {
   }, []);
 
   return (
-    <View>
+    <View style={{ marginTop: "5%" }}>
       <View style={styles.sub_container}>
         <TouchableOpacity
           activeOpacity={0.5}
           onPress={() => {
-         
-            openDrawer();
+            setIsOpen(true);
           }}
         >
           <Icon name="align-left" size={30} color="black" />
@@ -64,6 +66,7 @@ const Header = () => {
           </View>
         </View>
       </View>
+      <BottomSheet open={open} handleClose={handleClose} />
     </View>
   );
 };

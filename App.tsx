@@ -4,7 +4,7 @@ import AppLoading from "expo-app-loading";
 import devTools from "react-query-native-devtools";
 import { Provider as PaperProvider } from "react-native-paper";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Container from "./navigation/drawerNavigation";
+import Container from "./navigation/mainNavigation";
 import UserContext from "./utils/fns/userContext";
 import useFns from "./utils/fns/useAppFns";
 

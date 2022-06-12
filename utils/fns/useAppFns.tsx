@@ -40,6 +40,7 @@ const UseFns = () => {
   };
 
   const handleLogOut = () => {
+  
     AsyncStorage.removeItem("BOOKING_TOKEN")
       .then(() => {
         setInitialState({
@@ -47,8 +48,11 @@ const UseFns = () => {
           user,
           isLoggedIn: false,
         });
+     
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return {

@@ -64,7 +64,7 @@ const UseFns = () => {
       onSuccess: async (data: Response) => {
         setData(data.data.rows);
 
-         setInformation(`Search Results: ${data.data.count}`);
+        setInformation(`Search Results: ${data.data.count}`);
       },
       onError: () => {
         setInformation(`Something went wrong`);
@@ -78,9 +78,13 @@ const UseFns = () => {
 
   const onChangeSearch = (searchQuery: string) => {
     setSearchQuery(searchQuery);
+  };
+  const handleSearch = () => {
+    if (searchQuery.length < 1) {
+      return;
+    }
     mutateName(searchQuery);
   };
-
   const handlePrice = (price: string) => {
     setIsPriceOpen(false);
     const arr = price.split("-");
@@ -97,6 +101,7 @@ const UseFns = () => {
     handlePrice,
     handleLocation,
     onChangeSearch,
+    handleSearch,
     loadingPrice,
     loadingName,
     loadingLocation,

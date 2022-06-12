@@ -1,10 +1,10 @@
 import React from "react";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
 import { Image, Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { Hotel as HotelType } from "../../types/apiTypes";
+import { Hotel } from "../../types/apiTypes";
 import useFns from "./useFns";
 
-const PopularHotel = (props: { hotel: HotelType }) => {
+const PopularHotel = (props: { hotel: Hotel }) => {
   const { handleNavigation } = useFns(props.hotel);
 
   return (

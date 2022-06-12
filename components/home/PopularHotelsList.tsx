@@ -30,6 +30,7 @@ const PopularHotelsList = () => {
   return (
     <FlatList
       horizontal
+      showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.flatList}
       data={topHotels}
       renderItem={(hotel) => <PopularHotel hotel={hotel.item} />}

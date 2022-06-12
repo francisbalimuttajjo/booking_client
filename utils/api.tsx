@@ -53,10 +53,8 @@ const getTopRatedHotels = async () => {
 };
 
 const authenticateUser = async () => {
-  const token = await AsyncStorage.getItem("BOOKING_TOKEN");
-  const response = await apiClient.post("/users/auth", {
-    token,
-  });
+  const token: any = await AsyncStorage.getItem("BOOKING_TOKEN");
+  const response = await apiClient.get("/users/auth", { headers: { token } });
 
   return response.data;
 };
@@ -74,6 +72,24 @@ const updateUserPassword = async ({
     confirmPassword,
     email,
     token,
+  });
+
+  return response.data.data;
+};
+
+const getBookings = async () => {
+  const token: any = await AsyncStorage.getItem("BOOKING_TOKEN");
+  const response = await apiClient.get("/booking", {
+    headers: { token },
+  });
+
+  return response.data.data;
+};
+const cancelBooking = async (id: number) => {
+  const token: any = await AsyncStorage.getItem("BOOKING_TOKEN");
+
+  const response = await apiClient.delete(`/booking/${id}`, {
+    headers: { token },
   });
 
   return response.data.data;
@@ -195,6 +211,8 @@ const Api = {
   loginUser,
   registerUser,
   updateUser,
+  getBookings,
+  cancelBooking,
   forgotPassword,
   authenticateUser,
   updateUserPassword,

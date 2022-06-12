@@ -15,10 +15,11 @@ const UseFns = (props: { hotel: Hotel }) => {
   const onChangeText = (review: string) => setReview(review);
 
   const handleSubmit = () => {
-    setLoading(true);
     if (review.length < 10) {
+      setError("Please provide a review");
       return;
     }
+    setLoading(true);
     api
       .reviewHotel({ hotel_Id: props.hotel.id, rating, review })
       .then(() => {

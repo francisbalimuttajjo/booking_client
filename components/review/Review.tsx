@@ -45,7 +45,7 @@ const Review = (props: { hotel: Hotel }) => {
           placeholder="Enter Review"
           label="Review"
           activeOutlineColor="#326fa8"
-          error={review.length < 1 ? true : false}
+          error={review.length < 10 ? true : false}
         />
       </View>
       {error !== "" && <Info error={error} />}

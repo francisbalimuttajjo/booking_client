@@ -16,7 +16,8 @@ export const UseFns = () => {
   const handleEditing = () => setIsEditing(true);
   const cancelEditing = () => setIsEditing(false);
 
-  const { initialState, handleLogin } = React.useContext(UserContext);
+  const { initialState, handleLogin, handleLogOut } =
+    React.useContext(UserContext);
   const { firstName, lastName, email, photo, id } = initialState.user;
 
   const [initialValues, setInitialValues] = React.useState<Values>({
@@ -75,8 +76,8 @@ export const UseFns = () => {
     firstName,
     lastName,
     email,
-    initialState
-    
+    initialState,
+    handleLogOut,
   };
 };
 

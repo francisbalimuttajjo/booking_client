@@ -1,5 +1,12 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import Icon from "react-native-vector-icons/EvilIcons";
 import { Searchbar } from "react-native-paper";
 import useFns from "./useFns";
 import Hotel from "./Hotel";
@@ -18,6 +25,7 @@ const Search = () => {
     loadingLocation,
     isLocationOpen,
     isPriceOpen,
+    handleSearch,
     onDismissLocation,
     onDismissPrice,
     openPrice,
@@ -26,11 +34,21 @@ const Search = () => {
 
   return (
     <View style={styles.container}>
-      <Searchbar
-        placeholder="search  ..."
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-      />
+      <View style={{ flexDirection: "row" }}>
+        <Searchbar
+          style={{ width: "85%" }}
+          placeholder="search  ..."
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={handleSearch}
+          style={styles.btn}
+        >
+          <Icon name="search" size={30} color="#fff" />
+        </TouchableOpacity>
+      </View>
 
       <Filter
         isPriceOpen={isPriceOpen}
@@ -62,6 +80,12 @@ export default Search;
 const styles = StyleSheet.create({
   container: { marginTop: "10%", width: "90%", alignSelf: "center" },
   flatList: { paddingTop: "5%", paddingBottom: "200%" },
+  btn: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#326fa8",
+    width: "15%",
+  },
   information: {
     fontWeight: "bold",
     fontSize: 18,

@@ -34,6 +34,7 @@ const Home = () => {
       </Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: "5%" }}
         data={hotels}
         renderItem={(hotel) => <Hotel hotel={hotel.item} />}
