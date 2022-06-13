@@ -15,9 +15,7 @@ const Footer = (props: { hotel?: Hotel }) => {
       <TouchableOpacity
         onPress={() => navigate("Booking", { hotel: props.hotel })}
         activeOpacity={0.7}
-        style={{
-          ...styles.btn,
-        }}
+        style={styles.btn}
       >
         <Text style={styles.text}>BOOK NOW</Text>
       </TouchableOpacity>

@@ -65,6 +65,7 @@ const Search = () => {
         <Text>Loading....</Text>
       ) : (
         <FlatList
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatList}
           data={data}
           renderItem={(hotel) => <Hotel hotel={hotel.item} />}
