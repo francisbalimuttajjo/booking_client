@@ -1,24 +1,28 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import UserContext from "../../utils/fns/userContext";
 import { HotelDetailsNavigationProps, Hotel } from "../../types/apiTypes";
 
 const Footer = (props: { hotel?: Hotel }) => {
   const { navigate } = useNavigation<HotelDetailsNavigationProps>();
+  const {initialState } = React.useContext(UserContext);
+  const {isLoggedIn}=initialState
 
   return (
     <View style={styles.container}>
       <View style={styles.price_container}>
         <Text style={styles.price}> &#36;&nbsp;{props.hotel?.price}</Text>
       </View>
-
-      <TouchableOpacity
-        onPress={() => navigate("Booking", { hotel: props.hotel })}
-        activeOpacity={0.7}
-        style={styles.btn}
-      >
-        <Text style={styles.text}>BOOK NOW</Text>
-      </TouchableOpacity>
+      {isLoggedIn &&
+        <TouchableOpacity
+          onPress={() => navigate("Booking", { hotel: props.hotel })}
+          activeOpacity={0.7}
+          style={styles.btn}
+        >
+          <Text style={styles.text}>BOOK NOW</Text>
+        </TouchableOpacity>
+      }
     </View>
   );
 };

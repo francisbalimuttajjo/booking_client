@@ -74,6 +74,7 @@ const Screen = () => {
             options={({ navigation, route }) => {
               let REVIEWS: Review[] | undefined = route.params.hotel.reviews;
               let IS_REVIEWED: boolean = false;
+              const BUTTON_DISABLED:boolean=IS_REVIEWED || !initialState.isLoggedIn
 
               if (REVIEWS !== undefined) {
                 const MY_REVIEWS = REVIEWS.filter(
@@ -94,7 +95,7 @@ const Screen = () => {
                         hotel: route.params.hotel,
                       });
                     }}
-                    disabled={IS_REVIEWED}
+                    disabled={BUTTON_DISABLED}
                     activeOpacity={0.6}
                     style={styles.btn}
                   >
