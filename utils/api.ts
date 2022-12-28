@@ -33,7 +33,8 @@ type Props = {
 
 const apiClient = axios.create({
   //baseURL: "http://192.168.43.96:5000/api/v1",
-  baseURL: "https://bookingbafra.herokuapp.com/api/v1",
+  //baseURL: "https://bookingbafra.herokuapp.com/api/v1",
+  baseURL: "https://bafrabooking.onrender.com/api/v1",
   headers: {
     "Content-type": "application/json",
   },
