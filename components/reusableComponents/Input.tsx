@@ -25,6 +25,8 @@ const Input: React.FC<Props & FieldProps> = props => {
 
   return (
     <TextInput
+      accessibilityLabelledBy={undefined}
+      accessibilityLanguage={undefined}
       label={props.label}
       onChangeText={text => {
         onChange(name)(text);
@@ -42,8 +44,7 @@ const Input: React.FC<Props & FieldProps> = props => {
       activeOutlineColor="#326fa8"
       keyboardType={props.keyboard ? 'numeric' : 'default'}
       error={hasError}
-      style={styles.input}
-      autoComplete
+      style={styles.input} // autoComplete
     />
   );
 };

@@ -1,32 +1,29 @@
 import React from 'react';
-// import Ionicon from 'react-native-vector-icons/AntDesign';
+import Ionicon from 'react-native-vector-icons/AntDesign';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  StyleSheet,
-  //, TouchableOpacity
-} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import HomeScreen from './screens/home';
 import MapScreen from './screens/map';
 import SignUpScreen from './screens/signUp';
 import SearchScreen from './screens/search';
-//import BookingScreen from './screens/booking';
+import BookingScreen from './screens/booking';
 import MyBookingsScreen from './screens/myBooking';
-// import ProfileScreen from './screens/profile';
-// import CameraScreen from './screens/camera';
-// import ReviewScreen from './screens/review';
+import ProfileScreen from './screens/profile';
+import CameraScreen from './screens/camera';
+import ReviewScreen from './screens/review';
 import SuccessScreen from './screens/success';
 import ForgotPasswordScreen from './screens/forgotPassword';
 import LoginScreen from './screens/login';
-// import HotelDetailsScreen from './screens/hotelDetails';
-// import ChangePasswordScreen from './screens/changePassword';
+import HotelDetailsScreen from './screens/hotelDetails';
+import ChangePasswordScreen from './screens/changePassword';
 import {mainStackParams, mainRoutes} from '../types/screenTypes';
-// import {Review} from '../types/apiTypes';
-// import useFns from '../components/profile/useFns';
+import {Review} from '../types/apiTypes';
+import useFns from '../components/profile/useFns';
 
 const Screen = () => {
   const Stack = createStackNavigator<mainStackParams>();
-  // const {initialState} = useFns();
+  const {initialState} = useFns();
 
   return (
     <NavigationContainer>
@@ -48,7 +45,6 @@ const Screen = () => {
             component={SignUpScreen}
             options={{headerShown: false}}
           />
-
           <Stack.Screen
             name={mainRoutes.MyBookings}
             component={MyBookingsScreen}
@@ -59,19 +55,16 @@ const Screen = () => {
             component={ForgotPasswordScreen}
             options={{title: 'Forgot Password'}}
           />
-
           <Stack.Screen
             name={mainRoutes.LogIn}
             component={LoginScreen}
             options={{headerShown: false}}
           />
-
           <Stack.Screen
             name={mainRoutes.Success}
             component={SuccessScreen}
             options={{headerShown: false}}
           />
-          {/*
           <Stack.Screen
             name={mainRoutes.HotelDetails}
             component={HotelDetailsScreen}
@@ -117,12 +110,14 @@ const Screen = () => {
             component={ReviewScreen}
             options={{title: ''}}
           />
+
           <Stack.Screen name={mainRoutes.Profile} component={ProfileScreen} />
           <Stack.Screen
             name={mainRoutes.Booking}
             component={BookingScreen}
             options={{title: 'Confirm & Book'}}
           />
+
           <Stack.Screen
             name={mainRoutes.Camera}
             component={CameraScreen}
@@ -132,7 +127,7 @@ const Screen = () => {
             name={mainRoutes.ChangePassword}
             component={ChangePasswordScreen}
             options={{title: 'Change Password'}}
-          />*/}
+          />
           <Stack.Screen
             name={mainRoutes.Map}
             component={MapScreen}
@@ -142,7 +137,6 @@ const Screen = () => {
               };
             }}
           />
-
           <Stack.Screen name={mainRoutes.Search} component={SearchScreen} />
         </Stack.Group>
       </Stack.Navigator>
