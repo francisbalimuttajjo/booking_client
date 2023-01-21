@@ -10,14 +10,14 @@ import HomeScreen from './screens/home';
 import MapScreen from './screens/map';
 import SignUpScreen from './screens/signUp';
 import SearchScreen from './screens/search';
-// import BookingScreen from './screens/booking';
-// import MyBookingsScreen from './screens/myBooking';
+//import BookingScreen from './screens/booking';
+import MyBookingsScreen from './screens/myBooking';
 // import ProfileScreen from './screens/profile';
 // import CameraScreen from './screens/camera';
 // import ReviewScreen from './screens/review';
-// import SuccessScreen from './screens/success';
-// import ForgotPasswordScreen from './screens/forgotPassword';
-// import LoginScreen from './screens/login';
+import SuccessScreen from './screens/success';
+import ForgotPasswordScreen from './screens/forgotPassword';
+import LoginScreen from './screens/login';
 // import HotelDetailsScreen from './screens/hotelDetails';
 // import ChangePasswordScreen from './screens/changePassword';
 import {mainStackParams, mainRoutes} from '../types/screenTypes';
@@ -48,7 +48,7 @@ const Screen = () => {
             component={SignUpScreen}
             options={{headerShown: false}}
           />
-          {/*
+
           <Stack.Screen
             name={mainRoutes.MyBookings}
             component={MyBookingsScreen}
@@ -71,6 +71,7 @@ const Screen = () => {
             component={SuccessScreen}
             options={{headerShown: false}}
           />
+          {/*
           <Stack.Screen
             name={mainRoutes.HotelDetails}
             component={HotelDetailsScreen}
