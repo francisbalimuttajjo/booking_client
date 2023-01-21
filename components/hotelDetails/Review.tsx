@@ -1,10 +1,11 @@
-import React from "react";
-import { Rating } from "react-native-ratings";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Review as ReviewType } from "../../types/apiTypes";
+import React from 'react';
+import {Rating} from 'react-native-ratings';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import {Review as ReviewType} from '../../types/apiTypes';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
-const Review = (props: { review: ReviewType }) => {
-  const { review } = props;
+const Review = (props: {review: ReviewType}) => {
+  const {review} = props;
 
   return (
     <View style={styles.container}>
@@ -20,12 +21,17 @@ const Review = (props: { review: ReviewType }) => {
         <Text style={styles.review}>{review.review}</Text>
       </View>
       <View style={styles.image_container}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: review.author.photo,
-          }}
-        />
+        {review.author.photo !== '' ? (
+          <Image
+            style={styles.image}
+            source={{
+              uri: review.author.photo,
+            }}
+          />
+        ) : (
+          <Icon name="user" size={52} color="black" />
+        )}
+
         <Text style={styles.author}>{review.author.firstName}</Text>
       </View>
     </View>
@@ -39,35 +45,35 @@ const styles = StyleSheet.create({
     height: 180,
     width: 300,
     marginRight: 10,
-    shadowColor: "rgba(0,0,0, .4)",
-    shadowOffset: { height: 1, width: 1 },
+    shadowColor: 'rgba(0,0,0, .4)',
+    shadowOffset: {height: 1, width: 1},
     shadowOpacity: 1,
     shadowRadius: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     elevation: 6,
     borderRadius: 15,
-    paddingHorizontal: "10%",
-    paddingTop: "2%",
+    paddingHorizontal: '10%',
+    paddingTop: '2%',
   },
-  review_container: { height: "40%", width: "90%", alignSelf: "center" },
+  review_container: {height: '40%', width: '90%', alignSelf: 'center'},
   image_container: {
-    flexDirection: "row",
-    height: "35%",
-    alignItems: "flex-end",
+    flexDirection: 'row',
+    height: '35%',
+    alignItems: 'flex-end',
   },
-  review: { textTransform: "capitalize", fontSize: 16, opacity: 0.8 },
+  review: {textTransform: 'capitalize', fontSize: 16, opacity: 0.8},
   author: {
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     fontSize: 16,
     marginLeft: 10,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     opacity: 0.5,
   },
   image: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginBottom: -20,
   },
 });
