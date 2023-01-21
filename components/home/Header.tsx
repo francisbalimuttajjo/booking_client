@@ -1,8 +1,6 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
 import {NavigationProps} from '../../types/apiTypes';
 import {useNavigation} from '@react-navigation/native';
 // import * as Location from "expo-location";
@@ -45,7 +43,7 @@ const Header = () => {
           onPress={() => {
             setIsOpen(true);
           }}>
-          <Icon name="align-left" size={30} color="black" />
+          <EvilIcon name="navicon" size={30} color="black" />
         </TouchableOpacity>
         {/* {location !== '' && ( */}
         <View style={styles.location_container}>
@@ -61,9 +59,9 @@ const Header = () => {
             onPress={handleSearch}>
             <EvilIcon name="search" size={32} color="#326fa8" />
           </TouchableOpacity>
-          <View style={styles.center}>
-            <EntypoIcon name="dots-three-vertical" size={20} color="black" />
-          </View>
+          {/* <View style={styles.center}>
+            <Icon name="dots-vertical" size={20} color="black" />
+          </View> */}
         </View>
       </View>
       <BottomSheet open={open} handleClose={handleClose} />

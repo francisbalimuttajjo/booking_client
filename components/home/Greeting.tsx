@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import Ionicon from "react-native-vector-icons/Ionicons";
-import UserContext from "../../utils/fns/userContext";
+import React, {useContext} from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/EvilIcons';
+import UserContext from '../../utils/fns/userContext';
 
 const Greeting = () => {
-  const { initialState } = useContext(UserContext);
+  const {initialState} = useContext(UserContext);
 
   return (
     <View>
       <View style={styles.container}>
-        {initialState.user.photo === "" ? (
-          <Ionicon name="ios-person-circle-outline" size={52} color="black" />
+        {initialState.user.photo === '' ? (
+          <Icon name="user" size={52} color="black" />
         ) : (
           <Image
             style={styles.image}
@@ -39,15 +39,15 @@ const styles = StyleSheet.create({
   },
   greetings_2: {
     fontSize: 26,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     opacity: 0.6,
     marginTop: 5,
   },
-  container: { width: "90%", alignItems: "flex-end", marginTop: "8%" },
-  sub_container: { width: "90%", alignSelf: "center" },
+  container: {width: '90%', alignItems: 'flex-end', marginTop: '8%'},
+  sub_container: {width: '90%', alignSelf: 'center'},
   greetings_1: {
     fontSize: 20,
-    fontWeight: "bold",
-    textTransform: "capitalize",
+    fontWeight: 'bold',
+    textTransform: 'capitalize',
   },
 });
