@@ -38,7 +38,7 @@ export const Form = (props: FormProps) => {
               component={Input}
               name="Email"
               label="Email"
-              left={<TextInput.Icon name="email" color="#bbbdbd" />}
+              left={<TextInput.Icon icon="email" color="#bbbdbd" />}
             />
             <TouchableOpacity
               activeOpacity={0.6}

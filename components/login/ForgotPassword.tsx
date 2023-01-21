@@ -29,7 +29,7 @@ export const Form = () => {
               component={Input}
               name="Email"
               label="Email"
-              left={<TextInput.Icon name="email" color="#bbbdbd" />}
+              left={<TextInput.Icon icon="email" color="#bbbdbd" />}
             />
             {error !== '' && <Info error={error} />}
             <TouchableOpacity
