@@ -1,7 +1,7 @@
-import { FieldProps } from "formik";
-import React from "react";
-import { StyleSheet } from "react-native";
-import { TextInput } from "react-native-paper";
+import {FieldProps} from 'formik';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {TextInput} from 'react-native-paper';
 
 type Props = {
   keyboard?: boolean;
@@ -10,24 +10,23 @@ type Props = {
   error?: boolean;
 };
 
-const Input: React.FC<Props & FieldProps> = (props) => {
+const Input: React.FC<Props & FieldProps> = props => {
   const {
     keyboard,
     isAmount,
- 
     label,
     error,
-    field: { name, onBlur, onChange, value },
-    form: { errors, touched, setFieldTouched },
+    field: {name, onBlur, onChange, value},
+    form: {errors, touched, setFieldTouched},
     ...inputProps
   } = props;
 
-  const hasError = errors[name] && touched[name];
+  const hasError: any = errors[name] && touched[name];
 
   return (
     <TextInput
       label={props.label}
-      onChangeText={(text) => {
+      onChangeText={text => {
         onChange(name)(text);
       }}
       onBlur={() => {
@@ -41,7 +40,7 @@ const Input: React.FC<Props & FieldProps> = (props) => {
       {...inputProps}
       outlineColor="#bdbdbd"
       activeOutlineColor="#326fa8"
-      keyboardType={props.keyboard ? "numeric" : "default"}
+      keyboardType={props.keyboard ? 'numeric' : 'default'}
       error={hasError}
       style={styles.input}
       autoComplete
@@ -54,6 +53,6 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 13,
     height: 50,
-    marginTop: "5%",
+    marginTop: '5%',
   },
 });

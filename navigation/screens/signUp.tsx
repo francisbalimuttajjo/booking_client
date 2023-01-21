@@ -1,15 +1,15 @@
 import React from 'react';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import Home from '../../components/home/Home';
+import SignUp from '../../components/login/SignUp';
 
-const HomeScreen = () => {
+const SignUpScreen = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <Home />
+        <SignUp />
       </SafeAreaView>
     </SafeAreaProvider>
   );
 };
 
-export default HomeScreen;
+export default SignUpScreen;

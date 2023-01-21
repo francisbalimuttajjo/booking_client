@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import HomeScreen from './screens/home';
 // import MapScreen from './screens/map';
-// import SignUpScreen from './screens/signUp';
+import SignUpScreen from './screens/signUp';
 // import SearchScreen from './screens/search';
 // import BookingScreen from './screens/booking';
 // import MyBookingsScreen from './screens/myBooking';
@@ -43,11 +43,12 @@ const Screen = () => {
             component={HomeScreen}
             options={{headerShown: false}}
           />
-          {/* <Stack.Screen
+          <Stack.Screen
             name={mainRoutes.SignUp}
             component={SignUpScreen}
             options={{headerShown: false}}
           />
+          {/*
           <Stack.Screen
             name={mainRoutes.MyBookings}
             component={MyBookingsScreen}
