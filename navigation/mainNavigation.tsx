@@ -7,9 +7,9 @@ import {
   //, TouchableOpacity
 } from 'react-native';
 import HomeScreen from './screens/home';
-// import MapScreen from './screens/map';
+import MapScreen from './screens/map';
 import SignUpScreen from './screens/signUp';
-// import SearchScreen from './screens/search';
+import SearchScreen from './screens/search';
 // import BookingScreen from './screens/booking';
 // import MyBookingsScreen from './screens/myBooking';
 // import ProfileScreen from './screens/profile';
@@ -131,7 +131,7 @@ const Screen = () => {
             name={mainRoutes.ChangePassword}
             component={ChangePasswordScreen}
             options={{title: 'Change Password'}}
-          />
+          />*/}
           <Stack.Screen
             name={mainRoutes.Map}
             component={MapScreen}
@@ -142,7 +142,7 @@ const Screen = () => {
             }}
           />
 
-          <Stack.Screen name={mainRoutes.Search} component={SearchScreen} /> */}
+          <Stack.Screen name={mainRoutes.Search} component={SearchScreen} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
