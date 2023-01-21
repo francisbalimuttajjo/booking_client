@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Button, Menu } from "react-native-paper";
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {Button, Menu} from 'react-native-paper';
 
 interface MenuProps {
   title: string;
@@ -19,18 +19,16 @@ const MenuComponent = (props: MenuProps) => {
       anchor={
         <Button
           style={styles.btn}
-          contentStyle={{ flexDirection: "row-reverse" }}
-          color="#f0f2f5"
+          contentStyle={{flexDirection: 'row-reverse'}}
+          buttonColor="#f0f2f5"
           icon="chevron-down"
           dark={true}
           mode="contained"
-          labelStyle={{ color: "black", textTransform: "capitalize" }}
-          onPress={props.handlePress}
-        >
+          labelStyle={{color: 'black', textTransform: 'capitalize'}}
+          onPress={props.handlePress}>
           {props.title}
         </Button>
-      }
-    >
+      }>
       {props.data.map((el, index) => (
         <Menu.Item
           key={index}
@@ -50,6 +48,6 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 15,
     borderWidth: 0.5,
-    borderColor: "black",
+    borderColor: 'black',
   },
 });
