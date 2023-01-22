@@ -1,39 +1,73 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  PermissionsAndroid,
+} from 'react-native';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import {NavigationProps} from '../../types/apiTypes';
 import {useNavigation} from '@react-navigation/native';
-// import * as Location from "expo-location";
 import BottomSheet from './BottomSheet';
+import Geolocation from 'react-native-geolocation-service';
+import axios from 'axios';
 
 const Header = () => {
   const {navigate} = useNavigation<NavigationProps>();
-  // const [location, setLocation] = React.useState<string>('');
+  const [location, setLocation] = React.useState<string>('');
   const handleSearch = () => navigate('Search');
-  const [open, setIsOpen] = React.useState(false);
+  const [open, setIsOpen] = React.useState<boolean>(false);
   const handleClose = () => setIsOpen(false);
 
-  // React.useEffect(() => {
-  //   (async () => {
-  //     let { status } = await Location.requestForegroundPermissionsAsync();
-  //     if (status !== "granted") {
-  //       return;
-  //     }
+  React.useEffect(() => {
+    const requestLocationPermission = async () => {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: 'Booking Permission',
+            message: 'Can Booking access your location?',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+        console.log('granted', granted);
+        if (granted === 'granted') {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (err) {
+        return false;
+      }
+    };
 
-  //     let { coords } = await Location.getCurrentPositionAsync({});
-  //     const { latitude, longitude } = coords;
+    (async () => {
+      const result = await requestLocationPermission();
 
-  //     let response = await Location.reverseGeocodeAsync({
-  //       latitude,
-  //       longitude,
-  //     });
-  //     if (response) {
-  //       setLocation(`${response[0].city}, ${response[0].country} `);
-  //     }
-  //   })();
-  // }, []);
+      if (result) {
+        Geolocation.getCurrentPosition(
+          async position => {
+            const {latitude, longitude} = position.coords;
+            let res = await axios.get(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`,
+              {headers: {'Content-type': 'application/json'}},
+            );
 
-  const location = 'Kasangati';
+            console.log({res: res.data});
+            setLocation(`${res.data.city}  ${res.data.countryName}`);
+          },
+          error => {
+            // See error code charts below.
+            console.log(error.code, error.message);
+          },
+          {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+        );
+      }
+    })();
+  }, []);
 
   return (
     <View style={{marginTop: '5%'}}>
