@@ -33,7 +33,7 @@ const Header = () => {
             buttonPositive: 'OK',
           },
         );
-        console.log('granted', granted);
+
         if (granted === 'granted') {
           return true;
         } else {
@@ -93,9 +93,6 @@ const Header = () => {
             onPress={handleSearch}>
             <EvilIcon name="search" size={32} color="#326fa8" />
           </TouchableOpacity>
-          {/* <View style={styles.center}>
-            <Icon name="dots-vertical" size={20} color="black" />
-          </View> */}
         </View>
       </View>
       <BottomSheet open={open} handleClose={handleClose} />
