@@ -79,12 +79,12 @@ const Header = () => {
           }}>
           <EvilIcon name="navicon" size={30} color="black" />
         </TouchableOpacity>
-        {/* {location !== '' && ( */}
-        <View style={styles.location_container}>
-          <EvilIcon name="location" size={24} color="black" />
-          <Text>{location}</Text>
-        </View>
-        {/* )} */}
+        {location !== '' && (
+          <View style={styles.location_container}>
+            <EvilIcon name="location" size={24} color="black" />
+            <Text>{location}</Text>
+          </View>
+        )}
 
         <View style={styles.search_container}>
           <TouchableOpacity
