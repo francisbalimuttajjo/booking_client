@@ -2,7 +2,7 @@ import React from 'react';
 import Ionicon from 'react-native-vector-icons/AntDesign';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import HomeScreen from './screens/home';
 import MapScreen from './screens/map';
 import SignUpScreen from './screens/signUp';
@@ -84,24 +84,57 @@ const Screen = () => {
 
               return {
                 title: '',
-                headerRight: () => (
-                  <TouchableOpacity
-                    onPress={async () => {
-                      navigation.navigate('Review', {
-                        hotel: route.params.hotel,
-                      });
-                    }}
-                    disabled={IS_REVIEWED || !initialState.isLoggedIn}
-                    activeOpacity={0.6}
-                    style={styles.btn}>
-                    {IS_REVIEWED && (
-                      <Ionicon name="heart" size={26} color="red" />
-                    )}
-                    {!IS_REVIEWED && (
-                      <Ionicon name="hearto" size={26} color="black" />
-                    )}
-                  </TouchableOpacity>
-                ),
+                headerRight: () => {
+                  if (!initialState.isLoggedIn) {
+                    return <View />;
+                  } else if (IS_REVIEWED) {
+                    return (
+                      <TouchableOpacity
+                        disabled
+                        activeOpacity={0.6}
+                        style={styles.btn}>
+                        <Ionicon name="heart" size={26} color="red" />
+                      </TouchableOpacity>
+                    );
+                  }
+                  console.log({IS_REVIEWED});
+                  return (
+                    <TouchableOpacity
+                      onPress={async () => {
+                        navigation.navigate('Review', {
+                          hotel: route.params.hotel,
+                        });
+                      }}
+                      disabled={IS_REVIEWED || !initialState.isLoggedIn}
+                      activeOpacity={0.6}
+                      style={styles.btn}>
+                      {IS_REVIEWED && (
+                        <Ionicon name="heart" size={26} color="red" />
+                      )}
+                      {!IS_REVIEWED && (
+                        <Ionicon name="hearto" size={26} color="black" />
+                      )}
+                    </TouchableOpacity>
+                  );
+                },
+                //   return (
+                //   <TouchableOpacity
+                //     onPress={async () => {
+                //       navigation.navigate('Review', {
+                //         hotel: route.params.hotel,
+                //       });
+                //     }}
+                //     disabled={IS_REVIEWED || !initialState.isLoggedIn}
+                //     activeOpacity={0.6}
+                //     style={styles.btn}>
+                //     {IS_REVIEWED && (
+                //       <Ionicon name="heart" size={26} color="red" />
+                //     )}
+                //     {!IS_REVIEWED && (
+                //       <Ionicon name="hearto" size={26} color="black" />
+                //     )}
+                //   </TouchableOpacity>
+                // ),
               };
             }}
           />

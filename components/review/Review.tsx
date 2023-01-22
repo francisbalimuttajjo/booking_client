@@ -1,5 +1,10 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import {Caption, TextInput, Title} from 'react-native-paper';
 import {Hotel} from '../../types/apiTypes';
@@ -54,7 +59,8 @@ const Review = (props: {hotel: Hotel}) => {
         onPress={handleSubmit}
         style={styles.btn}
         activeOpacity={0.6}>
-        <Title style={{color: '#fff'}}>Publish Review</Title>
+        {!loading && <Title style={{color: '#fff'}}>Publish Review</Title>}
+        {loading && <ActivityIndicator size="small" color="white" />}
       </TouchableOpacity>
     </View>
   );
